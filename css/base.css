@@ -1,0 +1,49 @@
+/* Colors variables--------------------------------------------------------------------------*/
+:root {
+  --background-burgandy: #901c1c;
+  --background-salmon: #db8876;
+  --bacground-almostWhite: #fafafa;
+
+  --text-burgandy: #901c1c;
+  --text-salmon: #d3573c;
+  --text-grey: #525252;
+}
+
+/* Base ---------------------------------------------------------------------------*/
+* {
+  box-sizing: border-box !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 10rem;
+  /* object-fit: contain; */
+}
+
+/* links -------------------------------------------------------------------------*/
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}
