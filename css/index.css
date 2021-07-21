@@ -1,110 +1,134 @@
 header,
-.photographers-cards,
-.nav-photographer-categories ul {
+.nav-photographer-categories ul,
+.flex-row-one,
+.flex-row-two,
+.photographer-card-tags {
   display: flex;
 }
 
 header {
   width: 60%;
   justify-content: space-between;
-  margin: 3% 3% 3% 3%;
+  margin: 4rem 5rem;
 }
 
 .logo-fisheye {
-}
-
-.logo-fisheye img {
+  width: 12.5rem;
+  height: 3.125rem;
 }
 
 .nav-photographer-categories {
 }
 
 .nav-photographer-categories ul {
+  padding-top: 3%;
 }
 
-.nav-photographer-categories ul li {
+.nav-photographer-categories li,
+.photographer-card-tags li {
+  border: 0.03125rem solid #c4c4c4;
+  border-radius: 0.6875rem;
+  padding: 0.05rem 0.3rem;
+  margin: 0.1rem;
+
   font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-
+  font-size: 0.7em;
+  line-height: 1em;
   text-align: center;
+}
 
+.nav-photographer-categories ul li a,
+.photographer-card-tags li a {
   color: var(--text-burgandy);
 }
 
 main {
-  margin: 3% 3% 3% 3%;
+  margin: 3% 0;
 }
 
 h1 {
   position: absolute;
-  left: 1017px;
-  top: 44px;
+  right: 5rem;
+  top: 3.5rem;
 
-  font-size: 36px;
-  line-height: 47px;
+  color: #911c1c;
+
+  font-size: 2em;
+  line-height: 2em;
 
   color: var(--text-burgandy);
 }
 
 .photographers-cards {
+  width: 80%;
+  margin: 5rem auto;
+}
+
+.flex-row-one,
+.flex-row-two {
   justify-content: space-between;
-  width: 100%;
 }
 
-.photographers-card {
-  width: 30%;
+.flex-row-one {
+  margin-bottom: 6rem;
 }
 
-.photographers-card a {
+.photographer-card {
+  width: 15rem;
+  height: 17rem;
 }
 
-.photographer-card-picture {
+.photographer-card a {
 }
 
 .photographer-card-picture img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  height: 12.5rem;
+  width: 12.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .photographer-card-name h2 {
-  font-size: 36px;
-  line-height: 47px;
+  font-size: 2.25rem;
+  line-height: 2.9375rem;
   text-align: center;
 
   color: var(--text-salmon);
 }
 
 .photographer-card-location {
-  font-size: 13px;
-  line-height: 17px;
-  text-align: center;
+  font-size: 0.8em;
+  line-height: 1em;
 
   color: var(--text-burgandy);
 }
 
 .photographer-card-phrase {
-  font-size: 10px;
-  line-height: 13px;
-  text-align: center;
+  font-size: 0.6em;
+  line-height: 1em;
 
   color: black;
 }
 
 .photographer-card-price {
-  font-size: 9px;
-  line-height: 12px;
-  text-align: center;
+  font-size: 0.5em;
+  line-height: 1em;
 
   color: var(--text-grey);
 }
 
+.photographer-card-location,
+.photographer-card-phrase,
+.photographer-card-price,
 .photographer-card-tags {
+  padding: 0.2rem;
+  text-align: center;
 }
 
-.photographer-card-tags li {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-
-  color: var(--text-burgandy);
+.photographer-card-tags {
+  justify-content: center;
 }
