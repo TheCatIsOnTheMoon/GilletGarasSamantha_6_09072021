@@ -82,9 +82,7 @@
               <li><a href="">#animals</a></li>
             </ul>
           </div>
-          <div class="banner-contactBtn">
-            <button>Contactez-moi</button>
-          </div>
+          <button class="banner-contactBtn button">Contactez-moi</button>
         </article>
         <aside class="banner-profilePicture">
           <img src="/pictures/Mimi/Portrait_Nora.jpg" alt="" />
@@ -351,6 +349,113 @@
         <span class="photographer-page-PricePerDay">
           <span class="photographer-page-PriceNbr">300</span>€ / jour
         </span>
+      </div>
+
+      <!-- Contact Modal Form -->
+
+      <div class="contact-form-bground">
+        <div class="contact-form">
+          <div class="contact-form-title">
+            Contactez-moi <br />
+            <span id="contact-form-photographerName">Mimi Keel</span>
+          </div>
+          <span class="contact-form-closeBtn" id="closeBtn"></span>
+          <div class="contact-form-modal-body">
+            <form
+              name="reserve"
+              action="index.html"
+              method="get"
+              onsubmit="return validate();"
+              id="form"
+            >
+              <div class="contact-form-data">
+                <label for="first">Prénom</label><br />
+                <input
+                  class="text-input"
+                  type="text"
+                  id="first"
+                  name="first"
+                  minlength="2"
+                  maxlength="20"
+                  required
+                /><br />
+                <p
+                  class="contact-form-data error-message"
+                  id="firstName-error-message"
+                ></p>
+              </div>
+              <div class="contact-form-data">
+                <label for="last">Nom</label><br />
+                <input
+                  class="text-input"
+                  type="text"
+                  id="last"
+                  name="last"
+                  minlength="2"
+                  maxlength="20"
+                  required
+                /><br />
+                <p
+                  class="contact-form-data error-message"
+                  id="lastName-error-message"
+                ></p>
+              </div>
+              <div class="contact-form-data">
+                <label for="email">E-mail</label><br />
+                <input
+                  class="text-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  maxlength="20"
+                  required
+                /><br />
+                <p
+                  class="contact-form-data error-message"
+                  id="email-error-message"
+                ></p>
+              </div>
+
+              <div class="contact-form-data">
+                <label for="communicationText">Votre Message</label><br />
+
+                <textarea
+                  class="text-textArea"
+                  type="text"
+                  id="communicationText"
+                  name="communicationText"
+                  rows="4"
+                  minlength="2"
+                  maxlength="200"
+                  required
+                ></textarea
+                ><br />
+
+                <p
+                  class="contact-form-data error-message"
+                  id="communicationText-error-message"
+                ></p>
+              </div>
+
+              <!-- send btn -->
+              <input
+                class="btn-submit button"
+                id="btn-submit"
+                type="submit"
+                value="Envoyer"
+              />
+            </form>
+            <div class="submit-validation" id="validation-message">
+              <p>Votre message à été envoyé.</p>
+              <button
+                class="btn-close-message button"
+                id="close-btn-validation-message"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>

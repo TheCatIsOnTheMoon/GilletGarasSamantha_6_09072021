@@ -63,3 +63,28 @@ a:visited {
 .banner-infos-tags li a {
   color: var(--text-burgandy);
 }
+
+/* button */
+
+.button {
+  border: none;
+  border-radius: 0.2rem;
+  background-color: var(--background-burgandy);
+  color: #ffffff;
+  padding: 1rem 0.5rem;
+
+  height: 3rem;
+
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1em;
+  align-items: center;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--background-salmon);
+  color: black;
+}
