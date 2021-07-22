@@ -1,3 +1,6 @@
+/* Global rules */
+
+/* All my display:flex componants */
 header,
 .nav-photographer-categories ul,
 .flex-row-one,
@@ -6,6 +9,7 @@ header,
   display: flex;
 }
 
+/* Particularities - top to bottom */
 header {
   width: 60%;
   justify-content: space-between;
@@ -17,29 +21,8 @@ header {
   height: 3.125rem;
 }
 
-.nav-photographer-categories {
-}
-
 .nav-photographer-categories ul {
   padding-top: 3%;
-}
-
-.nav-photographer-categories li,
-.photographer-card-tags li {
-  border: 0.03125rem solid #c4c4c4;
-  border-radius: 0.6875rem;
-  padding: 0.05rem 0.3rem;
-  margin: 0.1rem;
-
-  font-weight: 500;
-  font-size: 0.7em;
-  line-height: 1em;
-  text-align: center;
-}
-
-.nav-photographer-categories ul li a,
-.photographer-card-tags li a {
-  color: var(--text-burgandy);
 }
 
 main {
@@ -76,9 +59,6 @@ h1 {
 .photographer-card {
   width: 15rem;
   height: 17rem;
-}
-
-.photographer-card a {
 }
 
 .photographer-card-picture img {

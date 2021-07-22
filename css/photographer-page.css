@@ -1,0 +1,280 @@
+/* Global rules */
+
+/* All my display:flex componants */
+.photographer-page-banner,
+.photographer-page-banner article,
+.banner-infos,
+.banner-contactBtn-container button,
+.banner-infos-tags,
+.gallery-filterChoices,
+.dropdown-menu button,
+.gallery-cards-row1,
+.gallery-cards-row2,
+.gallery-photo-caption,
+.photo-caption-likes,
+.photographer-page-staticBox,
+.photographer-page-likes {
+  display: flex;
+}
+
+/* Particularities - top to bottom */
+header,
+main {
+  margin: 4rem 5rem;
+}
+
+.logo-fisheye {
+  width: 12.5rem;
+  height: 3.125rem;
+}
+
+/* Photograph banner */
+
+.photographer-page-banner {
+  margin-bottom: 4rem;
+  padding: 3rem 3rem 3rem 3rem;
+  background-color: var(--bacground-almostWhite);
+  justify-content: space-between;
+}
+
+.banner-infos {
+  flex-direction: column;
+  margin-right: 1rem;
+}
+
+.banner-infos-photographerName {
+  font-size: 2.25rem;
+  line-height: 2.9375rem;
+  margin-bottom: 1rem;
+
+  color: var(--text-salmon);
+}
+
+.banner-infos-location {
+  font-size: 0.8em;
+  line-height: 1em;
+  margin-bottom: 1rem;
+
+  color: var(--text-burgandy);
+}
+
+.banner-infos-phrase {
+  font-size: 0.6em;
+  line-height: 1em;
+  margin-bottom: 1rem;
+
+  color: var(--text-grey);
+}
+
+.banner-contactBtn button {
+  border: none;
+  border-radius: 0.2rem;
+  background-color: var(--background-burgandy);
+  color: #ffffff;
+  padding: 1rem 0.5rem;
+
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1em;
+  align-items: center;
+  text-align: center;
+}
+
+.banner-profilePicture img {
+  -o-object-fit: cover;
+  object-fit: cover;
+
+  border-radius: 50%;
+  box-shadow: 0.05rem 0.05rem 1rem grey;
+  height: 8rem;
+  width: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Gallery */
+
+/* .photographer-page-gallery {
+} */
+
+.gallery-filterChoices p {
+  font-weight: bold;
+}
+
+/* dropdown menu */
+
+.dropdown-menu,
+.dropdown-menu button,
+.dropdown-content {
+  width: 7.5rem;
+}
+
+.dropdown-menu {
+  position: relative;
+  display: inline-block;
+  margin-left: 2rem;
+  top: -1rem;
+
+  border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: var(--background-burgandy);
+}
+
+.dropdown-menu button {
+  border-radius: 0.2rem 0.2rem 0rem 0rem;
+  border: none;
+  background-color: var(--background-burgandy);
+  color: #ffffff;
+  padding: 1rem 0.5rem;
+
+  text-align: left;
+  position: relative;
+
+  cursor: pointer;
+}
+
+.dropdown-menu button p {
+  font-weight: 500;
+  font-size: 0.9em;
+  line-height: 1em;
+}
+
+.dropdown-menu-icon {
+  position: absolute;
+}
+
+#dropdown-menu-arrowUp,
+#dropdown-menu-arrowDown {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+
+  width: 0.9rem;
+}
+
+#dropdown-menu-arrowUp {
+  display: none;
+}
+
+#dropdown-menu-arrowDown {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  background-color: var(--background-burgandy);
+  color: #ffffff;
+  padding: 1rem 0.5rem;
+
+  border-top: 0.1rem solid white;
+
+  font-weight: 500;
+  font-size: 0.9em;
+  line-height: 1em;
+
+  align-items: center;
+  display: block;
+}
+
+/* dropdown menu hover stuffs*/
+
+.dropdown-content a:hover {
+  background-color: var(--background-salmon);
+  color: black;
+}
+
+.dropdown-menu:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-menu button:hover {
+  border-radius: 0;
+  background-color: var(--background-salmon);
+  color: black;
+}
+
+/* actual photo gallery */
+
+.gallery-cards-row1,
+.gallery-cards-row2 {
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-card {
+  width: 19rem;
+}
+
+.gallery-photo img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 0.2rem;
+  height: 18rem;
+  width: 19rem;
+  display: block;
+}
+
+.gallery-photo-caption {
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.photo-caption-title {
+  font-size: 1rem;
+  line-height: 1rem;
+
+  color: var(--text-burgandy);
+}
+
+.photo-caption-likes-number {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-weight: lighter;
+}
+
+.photo-caption-likes-heartIcon svg {
+  height: 1rem;
+  color: var(--text-burgandy);
+  padding-left: 0.5rem;
+
+  justify-content: space-between;
+}
+
+/* static box bottom right with total likes and price per day */
+
+.photographer-page-staticBox {
+  position: fixed;
+  right: 1rem;
+  bottom: 0rem;
+
+  width: 17rem;
+  padding: 1rem;
+  font-weight: 500;
+
+  border-radius: 0.3rem 0.3rem 0 0;
+  background-color: var(--background-salmon);
+
+  justify-content: space-between;
+}
+
+.photographer-page-likes {
+}
+
+.photographer-page-likes-heartIcon svg {
+  height: 1rem;
+  color: black;
+  padding-left: 0.5rem;
+
+  justify-content: space-between;
+}
+
+.photographer-page-Price {
+}
