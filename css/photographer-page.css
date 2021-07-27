@@ -20,7 +20,7 @@
 /* Particularities - top to bottom */
 header,
 main {
-  margin: 4rem 5rem;
+  margin: 4rem 0;
 }
 
 .logo-fisheye {
@@ -43,15 +43,15 @@ main {
 }
 
 .banner-infos-photographerName {
-  font-size: 2.25rem;
-  line-height: 2.9375rem;
+  font-size: 3rem;
+  line-height: 3rem;
   margin-bottom: 1rem;
 
   color: var(--text-salmon);
 }
 
 .banner-infos-location {
-  font-size: 0.8em;
+  font-size: 1.2em;
   line-height: 1em;
   margin-bottom: 1rem;
 
@@ -59,7 +59,7 @@ main {
 }
 
 .banner-infos-phrase {
-  font-size: 0.6em;
+  font-size: 0.8em;
   line-height: 1em;
   margin-bottom: 1rem;
 
@@ -72,11 +72,8 @@ main {
 
   border-radius: 50%;
   box-shadow: 0.05rem 0.05rem 1rem grey;
-  height: 8rem;
-  width: 8rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  height: 10rem;
+  width: 10rem;
 }
 
 /* Gallery */
@@ -229,6 +226,11 @@ main {
   padding-left: 0.5rem;
 
   justify-content: space-between;
+}
+
+.photo-caption-likes-heartIcon svg:hover {
+  color: var(--background-salmon);
+  cursor: pointer;
 }
 
 /* static box bottom right with total likes and price per day */
@@ -413,4 +415,97 @@ main {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media all and (max-width: 930px) {
+  /* index-page */
+  header {
+    margin: 2rem 2rem;
+    flex-direction: column;
+  }
+
+  .logo-fisheye svg {
+    width: 8rem;
+  }
+
+  main {
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  /* Photograph banner */
+
+  .photographer-page-banner {
+    width: 100%;
+    margin: 0rem;
+    padding: 0;
+    background-color: var(--bacground-almostWhite);
+
+    justify-content: space-between;
+  }
+
+  .banner-infos {
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  .banner-infos-photographerName {
+    font-size: 2rem;
+  }
+
+  .banner-infos-location {
+    font-size: 1em;
+  }
+
+  .banner-infos-phrase {
+    font-size: 0.7em;
+  }
+
+  .banner-contactBtn {
+    position: fixed;
+    bottom: 1rem;
+
+    margin: 0 auto;
+    width: 50%;
+
+    border-radius: 0.3rem;
+  }
+
+  .banner-profilePicture img {
+    height: 6rem;
+    width: 6rem;
+
+    position: absolute;
+    right: 1rem;
+  }
+
+  /* Gallery */
+
+  .gallery-filterChoices {
+    display: none;
+  }
+
+  .gallery-cards-row1,
+  .gallery-cards-row2 {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+
+  .gallery-card {
+    width: 90%;
+    margin: 1rem 1rem;
+  }
+
+  .gallery-photo img {
+    height: 12rem;
+    width: 100%;
+  }
+
+  .gallery-photo-caption {
+  }
+
+  .photographer-page-staticBox {
+    display: none;
+  }
 }

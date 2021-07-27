@@ -19,9 +19,11 @@ html {
 }
 
 body {
-  margin: 0;
+  max-width: 1500px;
+  margin: auto;
   padding: 0;
   font-family: "DM Sans", sans-serif;
+  position: relative;
 }
 
 main {
@@ -53,7 +55,7 @@ a:visited {
   margin: 0.1rem;
 
   font-weight: 500;
-  font-size: 0.7em;
+  font-size: 0.8em;
   line-height: 1em;
   text-align: center;
 }
