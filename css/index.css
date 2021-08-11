@@ -3,8 +3,7 @@
 /* All my display:flex componants */
 header,
 .nav-photographer-categories ul,
-.flex-row-one,
-.flex-row-two,
+.photographers-cards,
 .photographer-card-tags {
   display: flex;
 }
@@ -44,20 +43,18 @@ h1 {
 
 .photographers-cards {
   /* margin: auto; */
-}
-
-.flex-row-one,
-.flex-row-two {
-  justify-content: space-between;
-}
-
-.flex-row-one {
-  margin-bottom: 7rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .photographer-card {
   width: 15rem;
   height: 17rem;
+  margin: 3rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .photographer-card-picture img {
@@ -97,7 +94,7 @@ h1 {
   color: var(--text-burgandy);
 }
 
-.photographer-card-phrase {
+.photographer-card-tagLine {
   font-size: 0.6em;
   line-height: 1em;
 
@@ -112,7 +109,7 @@ h1 {
 }
 
 .photographer-card-location,
-.photographer-card-phrase,
+.photographer-card-tagLine,
 .photographer-card-price,
 .photographer-card-tags {
   padding: 0.2rem;
@@ -126,44 +123,4 @@ h1 {
   white-space: nowrap;
   width: 100%;
   min-width: 1px;
-}
-
-@media all and (max-width: 930px) {
-  /* index-page */
-  header {
-    margin: 2rem 2rem;
-    flex-direction: column;
-  }
-
-  .logo-fisheye svg {
-    width: 8rem;
-  }
-
-  .nav-photographer-categories ul {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  main {
-    margin: 1rem 0.5rem;
-    padding: 0;
-  }
-
-  main h1 {
-    font-size: 1rem;
-    /* position: initial; */
-    right: 1.5rem;
-    top: 0.5rem;
-  }
-
-  .flex-row-one,
-  .flex-row-two {
-    flex-direction: column;
-  }
-
-  .photographer-card {
-    width: 100%;
-    margin-bottom: 6rem;
-  }
 }

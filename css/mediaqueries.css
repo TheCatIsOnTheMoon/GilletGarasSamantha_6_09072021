@@ -1,0 +1,113 @@
+@media all and (max-width: 930px) {
+    /* index-page */
+    header {
+      margin: 2rem 2rem;
+      flex-direction: column;
+    }
+  
+    .logo-fisheye svg {
+      width: 8rem;
+    }
+  
+    .nav-photographer-categories ul {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    main {
+      margin: 1rem 0.5rem;
+      padding: 0;
+    }
+  
+    main h1 {
+      font-size: 1rem;
+      /* position: initial; */
+      right: 1.5rem;
+      top: 0.5rem;
+    }
+  
+    .flex-row-one,
+    .flex-row-two {
+      flex-direction: column;
+    }
+  
+    .photographer-card {
+      width: 100%;
+      margin-bottom: 6rem;
+    }
+  
+  /* Photograph banner */
+
+  .photographer-page-banner {
+    width: 100%;
+    margin: 0rem;
+    padding: 0;
+    background-color: var(--bacground-almostWhite);
+
+    justify-content: space-between;
+  }
+
+  .banner-infos {
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  .banner-infos-photographerName {
+    font-size: 2rem;
+  }
+
+  .banner-infos-location {
+    font-size: 1em;
+  }
+
+  .banner-infos-tagLine {
+    font-size: 0.7em;
+  }
+
+  .banner-contactBtn {
+    position: fixed;
+    bottom: 1rem;
+
+    margin: 0 auto;
+    width: 50%;
+
+    border-radius: 0.3rem;
+  }
+
+  .banner-profilePicture img {
+    height: 6rem;
+    width: 6rem;
+
+    position: absolute;
+    right: 1rem;
+  }
+
+  /* Gallery */
+
+  .gallery-filterChoices {
+    display: none;
+  }
+
+  .gallery-cards-row1,
+  .gallery-cards-row2 {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+
+  .gallery-card {
+    width: 90%;
+    margin: 1rem 1rem;
+  }
+
+  .gallery-photo img {
+    height: 12rem;
+    width: 100%;
+  }
+
+  .photographer-page-staticBox {
+    display: none;
+  }
+}
+  
