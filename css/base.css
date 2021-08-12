@@ -46,9 +46,11 @@ a:visited {
 }
 
 /* tags -------------------------------------------------------------------------*/
-.nav-photographer-categories li,
-.photographer-card-tags li,
-.banner-infos-tags li {
+
+.nav-photographer-categories ul li a,
+.photographer-card-tags li a,
+.banner-infos-tags li a {
+
   border: 0.03125rem solid #c4c4c4;
   border-radius: 0.6875rem;
   padding: 0.05rem 0.3rem;
@@ -58,13 +60,17 @@ a:visited {
   font-size: 0.8em;
   line-height: 1em;
   text-align: center;
-}
 
-.nav-photographer-categories ul li a,
-.photographer-card-tags li a,
-.banner-infos-tags li a {
   color: var(--text-burgandy);
 }
+
+.nav-photographer-categories ul li .selected-tag,
+.photographer-card-tags li .selected-tag,
+.banner-infos-tags li .selected-tag {
+  background-color: var(--background-burgandy);
+  color: white;
+}
+
 
 /* button */
 

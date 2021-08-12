@@ -18,6 +18,32 @@ console.log(result);
 
 // expected output: Array["exuberant", "destruction", "present"]
 
+// filterResult.forEach((photographer) => {
+
+      //   // console.log(photographer.id) //output : OK
+
+      //   filterResultIDs.push(photographer.id)
+      //   console.log(filterResultIDs)
+      // })
+
+      // let photographersCards = document.querySelectorAll("photographer-card");
+
+      // console.log(photographersCards)
+
+      // displayFilterResult(filterResultIDs)      
+
+      // function displayFilterResult(filterResultIDs) {
+      //   filterResultIDs.forEach((id) => { 
+      //     photographersCards.forEach((i) => {
+      //       if (!photographersCards[i].classList.contains(id)) {
+      //         photographersCards[i].classList.add("hidden")
+      //       } if (photographersCards[i].classList.contains(id)) {
+      //         photographersCards[i].classList.remove("hidden")
+      //       }
+      //     })
+      //   })        
+      // } // NOT WORKING
+
 // ******************** systeme de like ********************  //
 
 // let likes =
@@ -33,59 +59,3 @@ if (title.match(".jpg")) {
   galleryVideo = document.createElement("VIDEO");
   galleryVideo.classList.add("video");
 }
-
-
-
-
-
-
-// filter fonction
-function filterPhotographers(photographersData) {
-
-  const tags = document.querySelectorAll(".tag");
-
-  let selectTags = [];
-  let filterResult = [];
-
-  tags.forEach(tag => {
-    tag.addEventListener('click', event => {
-
-      // console.log(tag.textContent.substring(1)) //output : OK
-
-      selectTags.push(tag.textContent.substring(1))
-
-      // console.log(selectTags) //output : OK
-
-      selectTags.forEach(tag => {
-        filterResult = photographersData.photographers.filter(photographer => photographer.tags.includes(tag)) 
-      }) 
-
-      // console.log(filterResult) // output : good when 1 tag is selcted but only present result of the last selcted tag
-      
-      filterResult.forEach((photographer) => {
-        // console.log(photographer.id) //output : OK
-        filterResult = photographer.id
-        // console.log(filterResult)
-      })
-
-      // recuperer les id des carte photographe
-
-      let photographersCard = document.querySelectorAll("photographer-card");
-
-      // photographersCard.forEach( element => )
-
-      if (photographersCard.id.includes(filterResult)) {
-        photographersCard.classList.remove("hidden")
-      } else {
-        photographersCard.classList.add("hidden")
-      }
-
-      // output : Uncaught TypeError: photographersCard.id is undefined
-
-    })
-  });
-}
-
-
-
-filterPhotographers(data);
