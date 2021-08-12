@@ -8,8 +8,7 @@
 .banner-infos-tags,
 .gallery-filterChoices,
 .dropdown-menu button,
-.gallery-cards-row1,
-.gallery-cards-row2,
+.gallery-cards,
 .gallery-photo-caption,
 .photo-caption-likes,
 .photographer-page-staticBox,
@@ -181,16 +180,15 @@ main {
 }
 
 /* actual photo gallery */
-
-.gallery-cards-row1,
-.gallery-cards-row2 {
-  justify-content: space-between;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+.gallery-cards {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery-card {
   width: 19rem;
+  margin: 1rem;
 }
 
 .gallery-photo img {
@@ -373,9 +371,11 @@ main {
   width: 3px;
   background-color: #fff;
 }
+
 .contact-form-closeBtn:before {
   transform: rotate(45deg);
 }
+
 .contact-form-closeBtn:after {
   transform: rotate(-45deg);
 }
