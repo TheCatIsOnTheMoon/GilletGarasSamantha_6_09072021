@@ -1,8 +1,8 @@
 import { displayPhotographers } from "./modules/indexpage.js";
 import { filterPhotographers } from "./modules/indexpage.js";
-// import { photographerPageGenerator } from "./modules/photographerpage.js";
+import { photographerPageGenerator } from "./modules/photographerpage.js";
 
-"use strict";
+// "use strict"; // only when not in a module
 
 // fetch data
 fetch("./FishEyeData.json")
@@ -18,12 +18,30 @@ fetch("./FishEyeData.json")
         // console.log(data);
 
     const photographersData = data.photographers;
-
     const mediaData = data.media;
 
-    filterPhotographers(photographersData);
-    return displayPhotographers(photographersData);
+    if (document.URL.includes('photographer-page')) {
+
+      photographerPageGenerator(photographersData[0])
+
+    }
+    else {
+
+      filterPhotographers(photographersData);
+      displayPhotographers(photographersData);
+
+    }
+
+    // 
+    
+    return false
   })
   .catch(function (error) {
     console.log(error);
   });
+
+
+  // likes count /////////////////////////////////
+
+  // gallery ///////////////////////////////
+
