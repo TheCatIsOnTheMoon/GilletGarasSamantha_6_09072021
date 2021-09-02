@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="theme-color" content="#901C1C" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -26,7 +26,7 @@
 
 <body>
   <header>
-    <a href="index.html" class="logo-fisheye">
+    <a href="index.html" class="logo-fisheye" aria-label="Retourne à la page d'acceuil">
       <svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M24.7206 0.911377V6.51034H6.31164V17.578H21.4333V22.9166H6.31164V39.1926H0V0.911377H24.7206Z"
           fill="#911C1C" />
@@ -54,29 +54,24 @@
 
   <main>
 
-    <section class="photographer-page-banner" id="section-banner-photographer">
+    <section class="photographer-page-banner">
       <article>
-        <div class="banner-infos">
-          <h1 class="banner-infos-photographerName">Photographer Name</h1>
-          <h2 class="banner-infos-location">Ville, Pays</h2>
-          <p class="banner-infos-tagLine">Tag line</p>
-          <ul class="banner-infos-tags">
-            <li><a href="">#tag</a></li>
-            <li><a href="">#tag</a></li>
-            <li><a href=""> #tag</a></li>
-            <li><a href="">#tag</a></li>
-          </ul>
+        <div class="banner-infos"  id="div-banner-photographer-info">
+
         </div>
         <button class="banner-contactBtn button" id="contact-modal-form-launchBtn">
           Contactez-moi
         </button>
       </article>
-      <aside class="banner-profilePicture">
-        <img src="/pictures/Mimi/Portrait_Nora.jpg" alt="" />
+      <aside class="banner-profilePicture" id="aside-banner-profile-picture">
+        <!-- <img src="/pictures/Mimi/Portrait_Nora.jpg" alt="" /> -->
       </aside>
     </section>
 
     <section class="photographer-page-gallery">
+
+
+
       <article class="gallery-filterChoices">
         <p>Trier par</p>
         <div class="dropdown-menu">
@@ -91,7 +86,6 @@
                 </path>
               </svg>
             </i>
-
             <i class="dropdown-menu-icon" id="dropdown-menu-arrowDown">
               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
                 class="svg-inline--fa fa-chevron-down fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -109,153 +103,46 @@
         </div>
       </article>
 
+
+
+
       <!-- photos -->
       <article class="gallery-cards" id="article-gallery-cards">
 
         <div class="gallery-card">
+
           <figure class="gallery-photo">
             <img src="/pictures/Mimi/Animals_Rainbow.jpg" alt="" />
           </figure>
+
           <figcaption class="gallery-photo-caption">
             <h3 class="photo-caption-title">Titre Photo</h3>
             <div class="photo-caption-likes">
               <p class="photo-caption-likes-number">12</p>
-              <span class="photo-caption-likes-heartIcon"><i>
+              <span class="photo-caption-likes-heartIcon">
+                <i>
                   <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
                     class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512">
                     <path fill="currentColor"
                       d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
                     </path>
-                  </svg> </i></span>
+                  </svg>
+                </i>
+              </span>
             </div>
           </figcaption>
-        </div>
 
-        <div class="gallery-card">
-          <figure class="gallery-photo">
-            <img src="/pictures/Mimi/Animals_Rainbow.jpg" alt="" />
-          </figure>
-          <figcaption class="gallery-photo-caption">
-            <h3 class="photo-caption-title">Titre Photo</h3>
-            <div class="photo-caption-likes">
-              <p class="photo-caption-likes-number">12</p>
-              <span class="photo-caption-likes-heartIcon"><i>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                    class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                    </path>
-                  </svg> </i></span>
-            </div>
-          </figcaption>
-        </div>
-
-        <div class="gallery-card">
-          <figure class="gallery-photo">
-            <img src="/pictures/Mimi/Animals_Rainbow.jpg" alt="" />
-          </figure>
-          <figcaption class="gallery-photo-caption">
-            <h3 class="photo-caption-title">Titre Photo</h3>
-            <div class="photo-caption-likes">
-              <p class="photo-caption-likes-number">12</p>
-              <span class="photo-caption-likes-heartIcon"><i>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                    class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                    </path>
-                  </svg> </i></span>
-            </div>
-          </figcaption>
-        </div>
-
-
-        <div class="gallery-card">
-          <figure class="gallery-photo">
-            <img src="/pictures/Mimi/Animals_Rainbow.jpg" alt="" />
-          </figure>
-          <figcaption class="gallery-photo-caption">
-            <h3 class="photo-caption-title">Titre Photo</h3>
-            <div class="photo-caption-likes">
-              <p class="photo-caption-likes-number">12</p>
-              <span class="photo-caption-likes-heartIcon"><i>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                    class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                    </path>
-                  </svg> </i></span>
-            </div>
-          </figcaption>
-        </div>
-
-        <div class="gallery-card">
-          <figure class="gallery-photo">
-            <img src="/pictures/Mimi/Animals_Rainbow.jpg" alt="" />
-          </figure>
-          <figcaption class="gallery-photo-caption">
-            <h3 class="photo-caption-title">Titre Photo</h3>
-            <div class="photo-caption-likes">
-              <p class="photo-caption-likes-number">12</p>
-              <span class="photo-caption-likes-heartIcon"><i>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                    class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                    </path>
-                  </svg> </i></span>
-            </div>
-          </figcaption>
-        </div>
-
-        <div class="gallery-card">
-          <figure class="gallery-photo">
-            <img src="/pictures/Mimi/Animals_Rainbow.jpg" alt="" />
-          </figure>
-          <figcaption class="gallery-photo-caption">
-            <h3 class="photo-caption-title">Titre Photo</h3>
-            <div class="photo-caption-likes">
-              <p class="photo-caption-likes-number">12</p>
-              <span class="photo-caption-likes-heartIcon"><i>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                    class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                    </path>
-                  </svg> </i></span>
-            </div>
-          </figcaption>
         </div>
 
       </article>
     </section>
 
-    <div class="photographer-page-staticBox">
-      <div class="photographer-page-likes">
-        <p class="photographer-page-likes-Nbr">297 081</p>
-        <i class="photographer-page-likes-heartIcon">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-            class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path fill="currentColor"
-              d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-            </path>
-          </svg>
-        </i>
-      </div>
-      <span class="photographer-page-PricePerDay">
-        <span class="photographer-page-PriceNbr">300</span>€ / jour
-      </span>
-    </div>
+    <div class="photographer-page-staticBox" id="photographer-page-staticBox"></div>
 
     <!-- Contact Modal Form -->
 
-    <div class="contact-form-bground">
+    <div role="form" class="contact-form-bground">
       <div class="contact-form">
         <div class="contact-form-title">
           Contactez-moi <br />
@@ -263,7 +150,10 @@
         </div>
         <span class="contact-form-closeBtn" id="closeBtn"></span>
         <div class="contact-form-modal-body">
+
           <form name="reserve" action="index.html" method="get" onsubmit="return validate();" id="form">
+
+            <!-- first name input remove -->
             <!-- <div class="contact-form-data">
                 <label for="first">Prénom</label><br />
                 <input
@@ -280,10 +170,11 @@
                   id="firstName-error-message"
                 ></p>
               </div> -->
+
             <div class="contact-form-data">
-              <label for="last">Nom</label><br />
-              <input class="text-input" type="text" id="last" name="last" minlength="2" maxlength="20" required /><br />
-              <p class="contact-form-data error-message" id="lastName-error-message"></p>
+              <label for="name">Nom</label><br />
+              <input class="text-input" type="text" id="name" name="name" minlength="2" maxlength="20" required /><br />
+              <p class="contact-form-data error-message" id="name-error-message"></p>
             </div>
             <div class="contact-form-data">
               <label for="email">E-mail</label><br />
@@ -292,29 +183,35 @@
             </div>
 
             <div class="contact-form-data">
-              <label for="communicationText">Votre Message</label><br />
+              <label for="message">Votre Message</label><br />
 
-              <textarea class="text-textArea" type="text" id="communicationText" name="communicationText" rows="4"
+              <textarea class="text-textArea" type="text" id="message" name="communicationText" rows="4"
                 minlength="2" maxlength="200" required></textarea><br />
 
-              <p class="contact-form-data error-message" id="communicationText-error-message"></p>
+              <p class="contact-form-data error-message" id="message-error-message"></p>
             </div>
 
             <!-- send btn -->
             <input class="btn-submit button" id="btn-submit" type="submit" value="Envoyer" />
           </form>
+
+
           <div class="submit-validation" id="validation-message">
             <p>Votre message à été envoyé.</p>
             <button class="btn-close-message button" id="close-btn-validation-message">
               Fermer
             </button>
           </div>
+
+          
         </div>
       </div>
     </div>
   </main>
+
   <script src="modules/modal.js"></script>
   <script type="module" src="script.js"></script>
+
 </body>
 
 </html>

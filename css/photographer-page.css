@@ -65,6 +65,7 @@ main {
   color: var(--text-grey);
 }
 
+
 .banner-profilePicture img {
   -o-object-fit: cover;
   object-fit: cover;
@@ -342,11 +343,12 @@ main {
 /* error messages */
 
 .error-message {
-  font-size: 0.4em;
-  color: white;
+  font-size: 0.7em;
+  color: var(--text-burgandy);
+  font-weight: bold;
   display: block;
   margin-top: 7px;
-  margin-bottom: 3px;
+  margin-bottom: 15px;
   text-align: right;
   line-height: 0.3;
   transition: 0.3s;
@@ -386,7 +388,7 @@ main {
   display: none;
   flex-direction: column;
   position: relative;
-  min-height: 40rem;
+  min-height: 25rem;
 }
 
 .submit-validation p {
@@ -406,4 +408,5 @@ main {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  padding: 0 1rem 0 1rem;
 }
