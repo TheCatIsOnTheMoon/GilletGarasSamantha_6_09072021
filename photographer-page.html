@@ -109,39 +109,34 @@
       <!-- photos -->
       <article class="gallery-cards" id="article-gallery-cards">
 
-        <div class="gallery-card">
-
-          <figure class="gallery-photo">
-            <img src="/pictures/Mimi/Animals_Rainbow.jpg" alt="" />
-          </figure>
-
-          <figcaption class="gallery-photo-caption">
-            <h3 class="photo-caption-title">Titre Photo</h3>
-            <div class="photo-caption-likes">
-              <p class="photo-caption-likes-number">12</p>
-              <span class="photo-caption-likes-heartIcon">
-                <i>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                    class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                    </path>
-                  </svg>
-                </i>
-              </span>
-            </div>
-          </figcaption>
-
-        </div>
-
       </article>
     </section>
 
-    <div class="photographer-page-staticBox" id="photographer-page-staticBox"></div>
+    <div class="photographer-page-staticBox" id="photographer-page-staticBox">
+      <div class="photographer-page-likes">
+        <p class="photographer-page-likes-Nbr" id="totalNumberOfLikes"></p>
+        <i class="photographer-page-likes-heartIcon">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor"
+                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                </path>
+            </svg>
+        </i>
+    </div>
+    <span class="photographer-page-PricePerDay">
+      <span class="photographer-page-PriceNbr" id="photographer-page-PriceNbr"></span> € /jour
+    </span>
+
+
+
+
+
+    </div>
 
     <!-- Contact Modal Form -->
 
+    <!-- top of the contact form -->
     <div role="form" class="contact-form-bground">
       <div class="contact-form">
         <div class="contact-form-title">
@@ -151,37 +146,24 @@
         <span class="contact-form-closeBtn" id="closeBtn"></span>
         <div class="contact-form-modal-body">
 
+          <!-- actual form -->
           <form name="reserve" action="index.html" method="get" onsubmit="return validate();" id="form">
 
-            <!-- first name input remove -->
-            <!-- <div class="contact-form-data">
-                <label for="first">Prénom</label><br />
-                <input
-                  class="text-input"
-                  type="text"
-                  id="first"
-                  name="first"
-                  minlength="2"
-                  maxlength="20"
-                  required
-                /><br />
-                <p
-                  class="contact-form-data error-message"
-                  id="firstName-error-message"
-                ></p>
-              </div> -->
-
+            <!-- Name -->
             <div class="contact-form-data">
               <label for="name">Nom</label><br />
               <input class="text-input" type="text" id="name" name="name" minlength="2" maxlength="20" required /><br />
               <p class="contact-form-data error-message" id="name-error-message"></p>
             </div>
+
+            <!-- E-mail -->
             <div class="contact-form-data">
               <label for="email">E-mail</label><br />
               <input class="text-input" type="email" id="email" name="email" maxlength="20" required /><br />
               <p class="contact-form-data error-message" id="email-error-message"></p>
             </div>
 
+            <!-- Message -->
             <div class="contact-form-data">
               <label for="message">Votre Message</label><br />
 
@@ -195,7 +177,7 @@
             <input class="btn-submit button" id="btn-submit" type="submit" value="Envoyer" />
           </form>
 
-
+          <!-- Validation message -->
           <div class="submit-validation" id="validation-message">
             <p>Votre message à été envoyé.</p>
             <button class="btn-close-message button" id="close-btn-validation-message">
@@ -203,7 +185,7 @@
             </button>
           </div>
 
-          
+
         </div>
       </div>
     </div>

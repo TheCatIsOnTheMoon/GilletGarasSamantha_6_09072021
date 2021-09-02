@@ -11,7 +11,8 @@ export function displayPhotographers(photographersData) {
       indexPhotographersDOM += `
          
               <div class="photographer-card">
-              <a href="photographer-page.html">
+
+              <a href="photographer-page.html?id=${photographer.id}">
                 <figure class="photographer-card-picture">
                   <img src= pictures/Photographers_ID_Photos/${photographer.portrait} alt= ${photographer.portrait} />
                 </figure>
@@ -33,9 +34,10 @@ export function displayPhotographers(photographersData) {
             </div>
          
          `;
+      
     }); 
     
-    //  after .map().join(' ') is here to delete the coma between each li element
+    //  after .map(), .join(' ') is here to delete the coma between each li element
   
     document.getElementById("section-photographers-cards").innerHTML = indexPhotographersDOM;
 }
