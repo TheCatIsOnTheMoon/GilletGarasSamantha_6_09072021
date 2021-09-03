@@ -192,7 +192,8 @@ main {
   margin: 1rem;
 }
 
-.gallery-photo img {
+.gallery-photo img,
+.gallery-photo video {
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 0.2rem;
