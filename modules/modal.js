@@ -7,9 +7,7 @@ const form = document.getElementById("form");
 // Contact Modal Form Events --------------------------------------------------------------
 
 // launch contact modal form
-document
-  .getElementById("contact-modal-form-launchBtn")
-  .addEventListener("click", function () {
+document.getElementById("contact-modal-form-launchBtn").addEventListener("click", function () {
     modalbg.style.display = "block";
   });
 
