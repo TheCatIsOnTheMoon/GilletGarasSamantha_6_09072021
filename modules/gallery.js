@@ -5,7 +5,7 @@ export function displayGallery (mediaData) {
 
 
 
-    // /////////////// Gallery Factory /////////////// //
+    // /////////////// Gallery /////////////// //
 
     let photographeGalleryDOM = "";
 
@@ -41,8 +41,8 @@ export function displayGallery (mediaData) {
                 <div class="gallery-card">
                     <figure class="gallery-photo">
 
-                            <video controls>
-                                <source src="/pictures/${media.photographerId}/${media.video}" type="video/mp4" class="lightbox-link" alt="${media.title}">
+                            <video class="lightbox-link" src="/pictures/${media.photographerId}/${media.video}" alt="${media.title}">
+                                <source src="/pictures/${media.photographerId}/${media.video}" type="video/mp4" alt="${media.title}">
                                 Your browser does not support the video tag.
                             </video> 
                        

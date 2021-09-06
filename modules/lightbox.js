@@ -13,29 +13,41 @@ gallery.addEventListener("click", (event) => {
 
     // only act if target have the proper class "lightbox-link"
     if (event.target.className === "lightbox-link") {
-
-        // get the list of all the images in the page
-        // let imagesList = "";
-        
-        // imagesList = document.querySelectorAll("lightbox-link");
-
-            // console.log(imagesList) // NOT WORKING
-
-        // display the lightbox
-        lightbox.style.display = "block";
+      
         
         // take the src and alt data of the cliked picture to use it for the lightbox
-        launchLightbox(event.target.getAttribute('src'), event.target.getAttribute('alt'))
+        launchLightbox(event.target.tagName,event.target.getAttribute('src'), event.target.getAttribute('alt'))
     }
+
+    // console.log(event.target.tagName) // output : IMG or VIDEO
 });
 
-function launchLightbox(src, alt) {
+
+function launchLightbox(tagName, src, alt) {
+
+    // console.log(`${tagName}, ${src}, ${alt}`)
+    // output exemple : IMG, /pictures/930/Sport_Next_Hold.jpg, Climber
+    // output exemple : VIDEO, /pictures/930/Sport_Tricks_in_the_air.mp4, Tricks in the Air
 
     let lightboxDOM = "";
 
-    lightboxDOM = `<img src="${src}" alt="${alt}">`
+        if (tagName === "IMG") {
+        lightboxDOM = `<img src="${src}" alt="${alt}">`
+    }
 
+    if (tagName === "VIDEO") {
+        lightboxDOM = `
+            <video controls>
+                <source src="${src}" alt="${alt}">
+                    Your browser does not support the video tag.
+            </video>
+        `
+    }  
+ 
     document.getElementById("lightbox-container").innerHTML = lightboxDOM;
+
+    // display the lightbox
+    return lightbox.style.display = "block";
 }
 
 
