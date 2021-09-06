@@ -21,6 +21,7 @@ fetch("./FishEyeData.json")
     const photographersData = data.photographers;
     const mediaData = data.media;
 
+        // get the photographer id in the url and filter data with it
     if (document.URL.includes('photographer-page')) {
 
       let urlParams = new URLSearchParams(document.location.search.substring(1));
@@ -33,8 +34,10 @@ fetch("./FishEyeData.json")
       displayGallery(filteredDataMedia)
 
     } else {
+
       filterPhotographers(photographersData);
       displayPhotographers(photographersData);
+
     }
 
     // 
