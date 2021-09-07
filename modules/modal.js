@@ -16,15 +16,12 @@ document.getElementById("closeBtn").addEventListener("click", function () {
   modalbg.style.display = "none";
 });
 
-
-
-// ACCESSIBILITY : close contact modal form with escape key
-document.onkeydown = function(event) {
-  // event = event || window.event; // old JS not necessary anymore
+// ACCESSIBILITY : close contact modal form with escape key --------------------------
+document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' ) {
     modalbg.style.display = "none";
   }
-};
+});
 
 // 'keyCode' is deprecated.
 
@@ -136,4 +133,3 @@ function ErrorInputBorder(inputID) {
 function ValidInputBorder(inputID) {
   inputID.style.borderColor = "#ffffff";
 }
-

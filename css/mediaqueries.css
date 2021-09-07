@@ -1,45 +1,46 @@
 @media all and (max-width: 930px) {
-    /* index-page */
-    header {
-      margin: 2rem 2rem;
-      flex-direction: column;
-    }
-  
-    .logo-fisheye svg {
-      width: 8rem;
-    }
-  
-    .nav-photographer-categories ul {
-      width: 100%;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  
-    main {
-      margin: 1rem 0.5rem;
-      padding: 0;
-    }
-  
-    main h1 {
-      font-size: 1rem;
-      /* position: initial; */
-      right: 1.5rem;
-      top: 0.5rem;
-    }
-  
-    .flex-row-one,
-    .flex-row-two {
-      flex-direction: column;
-    }
-  
-    .photographer-card {
-      width: 100%;
-      margin-bottom: 6rem;
-    }
-  
-  /* Photograph banner */
+
+  /* index-page */
+  header {
+    margin: 1rem 1rem;
+    flex-direction: column;
+  }
+
+  main {
+    margin: 1rem 1rem;
+    padding: 0;
+  }
+
+  main h1 {
+    font-size: 1rem;
+
+    right: 1.5rem;
+    top: 0.5rem;
+  }
+
+
+  .logo-fisheye svg {
+    width: 8rem;
+  }
+
+  .nav-photographer-categories ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-photographer-categories ul li {
+    padding: .25rem 0rem;
+  }
+
+  .photographer-card {
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+
+  /* photographer-page : Photograph banner */
 
   .photographer-page-banner {
+    position: relative;
     width: 100%;
     margin: 0rem;
     padding: 0;
@@ -50,40 +51,46 @@
 
   .banner-infos {
     flex-direction: column;
-    margin-left: 1rem;
+    margin: .3rem;
   }
 
   .banner-infos-photographerName {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: .7;
+    margin-bottom: .5rem;
   }
 
   .banner-infos-location {
     font-size: 1em;
+    margin-bottom: .5rem;
   }
 
   .banner-infos-tagLine {
-    font-size: 0.7em;
+    font-size: 0.6em;
+    margin-bottom: .5rem;
   }
 
   .banner-contactBtn {
+    width: 50%;
+    border-radius: 0.3rem;
     position: fixed;
     bottom: 1rem;
 
-    margin: 0 auto;
-    width: 50%;
-
-    border-radius: 0.3rem;
+    /* to center the button */
+    right: 50%;
+    translate: 50%;
   }
 
   .banner-profilePicture img {
-    height: 6rem;
-    width: 6rem;
+    height: 5rem;
+    width: 5rem;
 
     position: absolute;
-    right: 1rem;
+    top: .3rem;
+    right: .3rem;
   }
 
-  /* Gallery */
+  /* photographer-page : Gallery part*/
 
   .gallery-filterChoices {
     display: none;
@@ -97,12 +104,13 @@
   }
 
   .gallery-card {
-    width: 90%;
-    margin: 1rem 1rem;
+    width: 100%;
+    margin: 1rem 0rem;
   }
 
-  .gallery-photo img {
-    height: 12rem;
+  .gallery-photo img,
+  .gallery-photo video {
+    height: 9rem;
     width: 100%;
   }
 
@@ -110,4 +118,3 @@
     display: none;
   }
 }
-  
