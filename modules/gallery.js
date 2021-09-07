@@ -142,15 +142,15 @@ export function displayGallery(mediaData) {
     // like adding and remove system
     document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {
 
-        // console.log(event.target) // output : <span class="photo-caption-likes-heartIcon">
-
-        // https://www.w3schools.com/jsref/prop_element_nextelementsibling.asp
+        // console.log(event.target) // output : <span class="photo-caption-likes-heartIcon">      
 
         function likeSystem() {
             if (event.target.className == "photo-caption-likes-heartIcon") {
     
                 event.target.classList.add("liked");
+                // increment number of likes of the photo
                 event.target.previousElementSibling.innerHTML ++;
+                // increment total number of likes of the photographer
                 totalNbrOfLikes++;
                 
                 return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
@@ -160,7 +160,9 @@ export function displayGallery(mediaData) {
             if (event.target.className == "photo-caption-likes-heartIcon liked") {
     
                 event.target.classList.remove("liked");
+                // decrement number of likes of the photo
                 event.target.previousElementSibling.innerHTML --;
+                // decrement total number of likes of the photographer
                 totalNbrOfLikes--;
                 
                 return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
@@ -172,28 +174,3 @@ export function displayGallery(mediaData) {
     });
 
 } // end of export function displayGallery(mediaData)
-
-
-
-
-
-// let isAlreadyLiked = false;
-
-//  let numberOfLikesDom = document.querySelector("#numberOfLikes");
-
-// document.querySelector("button").addEventListener("click", ()=>{
-     
-//       let numberOfLikes = Number( numberOfLikesDom.textContent);
-//       if(isAlreadyLiked === false){       
-//             numberOfLikes++;       
-//              numberOfLikesDom.textContent = numberOfLikes;      
-//              return isAlreadyLiked = true;           
-//       }
-  
-//       if(isAlreadyLiked === true){    
-//             numberOfLikes--;   
-//              numberOfLikesDom.textContent = numberOfLikes;   
-//             return isAlreadyLiked = false;    
-//       }
-    
-// });
