@@ -163,15 +163,11 @@ main {
 .gallery-cards {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
-.gallery-card {
-  width: 19rem;
-  margin: 1rem;
-
-  cursor: pointer;
-}
+/* .gallery-card {} */
 
 .gallery-photo img,
 .gallery-photo video {
@@ -181,6 +177,8 @@ main {
   height: 18rem;
   width: 19rem;
   display: block;
+
+  cursor: pointer;
 }
 
 .gallery-photo-caption {
@@ -209,6 +207,7 @@ main {
   padding-left: 0.5rem;
 
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .photo-caption-likes-heartIcon:hover {

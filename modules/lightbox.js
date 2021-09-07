@@ -2,7 +2,7 @@
 
 // DOM Elements --------------------------------------------------------
 
-const lightbox = document.getElementById("lightbox");
+const lightbox = document.getElementById("lightboxModal");
 const gallery = document.querySelector("#article-gallery-cards");
 
 
@@ -28,15 +28,24 @@ function launchLightbox(tagName, src, alt) {
     let lightboxDOM = "";
 
     if (tagName === "IMG") {
-        lightboxDOM = `<img src="${src}" alt="${alt}">`
+        lightboxDOM = `
+            <div class="lightbox-img">
+                <img src="${src}" alt="${alt}">
+                <div class="lightbox-title">${alt}</div>
+            </div>
+            
+        `
     }
 
     if (tagName === "VIDEO") {
         lightboxDOM = `
-            <video controls>
-                <source src="${src}" alt="${alt}">
-                    Your browser does not support the video tag.
-            </video>
+            <div class="lightbox-video">
+                <video controls>
+                    <source src="${src}" alt="${alt}">
+                        Your browser does not support the video tag.
+                </video>
+                <div class="lightbox-title">${alt}</div>
+            </div>
         `
     }  
  
