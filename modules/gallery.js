@@ -1,11 +1,8 @@
-export function displayGallery (mediaData) {
+export function displayGallery(mediaData) {
 
     const galleryData = mediaData;
 
-
-
-
-    // /////////////// Gallery /////////////// //
+    // ------------------------------//////////// Gallery Display ////////////// ----------------------------------------------//
 
     let photographeGalleryDOM = "";
 
@@ -22,23 +19,21 @@ export function displayGallery (mediaData) {
                     </figure>
                     <figcaption class="gallery-photo-caption">
                         <h3 class="photo-caption-title">${media.title}</h3>
+                       
                         <div class="photo-caption-likes">
-                            <p class="photo-caption-likes-number">${media.likes}</p>
-                            <span class="photo-caption-likes-heartIcon">
-                                <i><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-                                </svg></i>
-                            </span>
+                            <p class="photo-caption-likes-number">${media.likes}</p>                           
+                            <span class="photo-caption-likes-heartIcon"> ♥ </span>
                         </div>
+
                     </figcaption>
                 </div>
-            `;         
+            `;
         }
-            
+
         function createVideo() {
 
             photographeGalleryDOM += `
-                <div class="gallery-card">
+                <div class="gallery-card" id="${media.id}">
                     <figure class="gallery-photo">
 
                             <video class="lightbox-link" src="/pictures/${media.photographerId}/${media.video}" alt="${media.title}">
@@ -49,63 +44,53 @@ export function displayGallery (mediaData) {
                     </figure>
                     <figcaption class="gallery-photo-caption">
                         <h3 class="photo-caption-title">${media.title}</h3>
-                        <div class="photo-caption-likes">
-                            <p class="photo-caption-likes-number">${media.likes}</p>
-                            
-                            <span class="photo-caption-likes-heartIcon">
-                                <i><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-heart-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-                                </svg></i>
-                            </span>
 
+                        <div class="photo-caption-likes">
+                            <p class="photo-caption-likes-number">${media.likes}</p>                           
+                            <span class="photo-caption-likes-heartIcon"> ♥ </span>
                         </div>
+
                     </figcaption>
                 </div>
-            `;               
+            `;
         }
 
         function galleryFactory() {
             if (media.hasOwnProperty('image')) {
 
                 return createImage();
-                
-            } else if (media.hasOwnProperty('video')){
-    
+
+            } else if (media.hasOwnProperty('video')) {
+
                 return createVideo();
-                
+
             }
         }
 
         galleryFactory();
-        
+
     });
 
     document.getElementById("article-gallery-cards").innerHTML = photographeGalleryDOM;
 
 
-
-
-
-
-
-
-    // //////////// Sorting System ////////////// //
+    // ------------------------------//////////// Sorting System ////////////// ----------------------------------------------//
 
     let sortedData = "";
 
     document.getElementById("dropdown-menu-popularity").addEventListener("click", function () {
         sortedData = galleryData.sort(sortByPopularity);
-        displayGallery (sortedData)        
+        displayGallery(sortedData)
     });
 
-    document.getElementById("dropdown-menu-date").addEventListener("click", function () {       
+    document.getElementById("dropdown-menu-date").addEventListener("click", function () {
         sortedData = galleryData.sort(sortByDate);
-        displayGallery (sortedData)        
+        displayGallery(sortedData)
     });
 
     document.getElementById("dropdown-menu-title").addEventListener("click", function () {
         sortedData = galleryData.sort(sortByTitle);
-        displayGallery (sortedData)       
+        displayGallery(sortedData)
     });
 
     // REF : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -117,7 +102,7 @@ export function displayGallery (mediaData) {
         if (b.likes > a.likes) {
             return 1;
         }
-        return 0        
+        return 0
     }
 
     function sortByDate(a, b) {
@@ -127,7 +112,7 @@ export function displayGallery (mediaData) {
         if (b.date > a.date) {
             return 1;
         }
-        return 0       
+        return 0
     }
 
     function sortByTitle(a, b) {
@@ -137,99 +122,78 @@ export function displayGallery (mediaData) {
         if (b.title > a.title) {
             return -1;
         }
-        return 0       
+        return 0
     }
 
 
+    // -----------------------------//////////// Likes system & Likes Display ////////////// ---------------------------------------------//
 
-
-
-
-
-    // /////////////// Likes system /////////////// //
-
-    let photographeStaticBoxTotalLikesDOM = "";
+    // initialisation
     let totalNbrOfLikes = 0;
-
 
     // Get the total nbr of likes for the photographer
     for (let i = 0; i < galleryData.length; i++) {
         totalNbrOfLikes += galleryData[i].likes;
-    }; 
+    };
 
-    // console.log(totalNbrOfLikes) // output: OK
-    
     // Display total nbr of likes in the static box
-    photographeStaticBoxTotalLikesDOM += `
-            ${totalNbrOfLikes}
-    `;
+    document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
 
-    document.getElementById("totalNumberOfLikes").innerHTML = photographeStaticBoxTotalLikesDOM;
+    // like adding and remove system
+    document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {
 
+        // console.log(event.target) // output : <span class="photo-caption-likes-heartIcon">
 
-    // heart likes 
+        // https://www.w3schools.com/jsref/prop_element_nextelementsibling.asp
 
-    // let isAlreadyLiked = false;
-
-    function likedHeart() {
-
-        console.log("heart is on")
-        
-    }
-
-    // let isAlreadyLiked = false;
+        function likeSystem() {
+            if (event.target.className == "photo-caption-likes-heartIcon") {
     
-    // document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {
-
-    //     if (event.target.className == "photo-caption-likes-heartIcon-event") {
-
-    //         console.log(isAlreadyLiked)
-
-    //         // if(isAlreadyLiked === false){
-
-    //         //     // event.target.classList.add("liked");
-    //         //     // totalNbrOfLikes++;
-    //         //     console.log(isAlreadyLiked)
+                event.target.classList.add("liked");
+                event.target.previousElementSibling.innerHTML ++;
+                totalNbrOfLikes++;
                 
-    //         //     return isAlreadyLiked = true;      
-    //         // }
-                                  
-    //         // if(isAlreadyLiked === true){
+                return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
+
+            }
+
+            if (event.target.className == "photo-caption-likes-heartIcon liked") {
+    
+                event.target.classList.remove("liked");
+                event.target.previousElementSibling.innerHTML --;
+                totalNbrOfLikes--;
                 
-    //         //     // event.target.classList.remove("liked");
-    //         //     // totalNbrOfLikes--;
-    //         //     return isAlreadyLiked = false;           
-    //         // }
-    //     }
+                return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
+            }
+        }
+
+        likeSystem()
         
-    // });
+    });
+
+} // end of export function displayGallery(mediaData)
+
+
+
+
+
+// let isAlreadyLiked = false;
+
+//  let numberOfLikesDom = document.querySelector("#numberOfLikes");
+
+// document.querySelector("button").addEventListener("click", ()=>{
+     
+//       let numberOfLikes = Number( numberOfLikesDom.textContent);
+//       if(isAlreadyLiked === false){       
+//             numberOfLikes++;       
+//              numberOfLikesDom.textContent = numberOfLikes;      
+//              return isAlreadyLiked = true;           
+//       }
+  
+//       if(isAlreadyLiked === true){    
+//             numberOfLikes--;   
+//              numberOfLikesDom.textContent = numberOfLikes;   
+//             return isAlreadyLiked = false;    
+//       }
     
-
-}// end of export function displayGallery(mediaData)
-
-
-
-
-    // // like system when hearts are clicked
-    // let isAlreadyLiked = false;
-    
-
-    // gallery.addEventListener("click", (event) => {
-      
-
-    //     // only act if target have the proper class "photo-caption-likes-heartIcon"
-    //     if (event.target.className == "photo-caption-likes") {
-            
-    //         if(isAlreadyLiked === false){
-
-    //             // totalNbrOfLikes++;
-    //             return isAlreadyLiked = true;          
-    //         }
-                      
-    //         if(isAlreadyLiked === true){
-
-    //             // totalNbrOfLikes--;
-    //             return isAlreadyLiked = false;           
-    //         }
-    //     }
-    // });
+// });

@@ -148,34 +148,13 @@ main {
   z-index: 1;
 }
 
-.dropdown-content a {
-  background-color: var(--background-burgandy);
-  color: #ffffff;
-  padding: 1rem 0.5rem;
-
-  border-top: 0.1rem solid white;
-
-  font-weight: 500;
-  font-size: 0.9em;
-  line-height: 1em;
-
-  align-items: center;
-  display: block;
-}
-
 /* dropdown menu hover stuffs*/
-
-.dropdown-content a:hover {
-  background-color: var(--background-salmon);
-  color: black;
-}
-
 .dropdown-menu:hover .dropdown-content {
   display: block;
 }
 
 .dropdown-menu button:hover {
-  border-radius: 0;
+  border-radius: 0.2rem 0.2rem 0rem 0rem;
   background-color: var(--background-salmon);
   color: black;
 }
@@ -205,6 +184,8 @@ main {
 }
 
 .gallery-photo-caption {
+  position: relative;
+
   justify-content: space-between;
   padding-top: 1rem;
 }
@@ -223,31 +204,23 @@ main {
 }
 
 /* default heart */
-.photo-caption-likes-heartIcon svg {
-  height: 1rem;
+.photo-caption-likes-heartIcon {
   color: var(--text-burgandy);
   padding-left: 0.5rem;
 
   justify-content: space-between;
 }
 
-.photo-caption-likes-heartIcon svg:hover {
-  color: var(--background-salmon);
-  cursor: pointer;
+.photo-caption-likes-heartIcon:hover {
+  color: var(--text-salmon);
 }
 
-/* liked heart */
-.photo-caption-likes-heartIcon .liked svg {
-  height: 1rem;
-  color: var(--background-salmon);
-  padding-left: 0.5rem;
-
-  justify-content: space-between;
+.liked {
+  color: var(--text-salmon);
 }
 
-.photo-caption-likes-heartIcon .liked svg:hover {
+.liked:hover {
   color: var(--text-burgandy);
-  cursor: pointer;
 }
 
 /* static box bottom right with total likes and price per day */
@@ -267,7 +240,7 @@ main {
   justify-content: space-between;
 }
 
-.photographer-page-likes-heartIcon svg {
+.photographer-page-likes-heartIcon {
   height: 1rem;
   color: black;
   padding-left: 0.5rem;
