@@ -53,7 +53,7 @@ export function filterPhotographers(photographersData) {
 
   document.addEventListener("click", (event) => {
 
-    if (event.target !== navigation && event.target !== photographersCards) {
+    if (event.target.className === "tag") {
       // specificPhotographer(event.target?.dataset?.name);
 
       selectedTag = event.target?.dataset?.name;
@@ -61,7 +61,7 @@ export function filterPhotographers(photographersData) {
       tagStylisation(selectedTag)
     }
 
-    return displayPhotographers(photographersData);;
+    return false;;
 
   });
 

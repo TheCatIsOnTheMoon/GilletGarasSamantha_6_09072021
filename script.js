@@ -33,10 +33,8 @@ fetch("./FishEyeData.json")
 
     }
 
-    if (document.URL.includes('index')) {
-      filterPhotographers(photographersData);
-      displayPhotographers(photographersData);
-    }
+    filterPhotographers(photographersData);
+    displayPhotographers(photographersData);
 
     return false
   })

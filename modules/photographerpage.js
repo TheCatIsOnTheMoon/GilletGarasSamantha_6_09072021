@@ -52,20 +52,21 @@ export function photographerPageGenerator(photographe) {
 
     document.getElementById("photographer-page-PriceNbr").innerHTML = photographeStaticBoxPriceDOM;  
 
-    document.getElementById("dropdown-menu-popularity").addEventListener("focus", function () {
-        openDropDownMenu()
-      });
+    // BROKE EVRYTHING
+    // document.getElementById("dropdown-menu-popularity").addEventListener("focus", function () {
+    //     openDropDownMenu()
+    //   });
       
-      document.getElementById("dropdown-menu-focus").addEventListener("focusout", function () {
-        closeDropDownMenu()
-      });
+    //   document.getElementById("dropdown-menu-focus").addEventListener("focusout", function () {
+    //     closeDropDownMenu()
+    //   });
       
-      function openDropDownMenu() {
-        document.querySelector(".dropdown-content").style.display = "block";
-      }
+    //   function openDropDownMenu() {
+    //     document.querySelector(".dropdown-content").style.display = "block";
+    //   }
       
-      function closeDropDownMenu() {
-        document.querySelector(".dropdown-content").style.display = "none";
-      }
+    //   function closeDropDownMenu() {
+    //     document.querySelector(".dropdown-content").style.display = "none";
+    //   }
 
 } // end of the export function photographerPageGenerator(photographe)
