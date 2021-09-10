@@ -14,7 +14,7 @@ export function displayGallery(mediaData) {
                 <div class="gallery-card">
                     <figure class="gallery-photo">
                         
-                            <img src="/pictures/${media.photographerId}/${media.image}" class="lightbox-link" alt="${media.title}" />
+                            <img src="/pictures/${media.photographerId}/${media.image}" class="lightbox-link" alt="${media.title}" id="${media.id}"/>
                         
                     </figure>
                     <figcaption class="gallery-photo-caption">
@@ -36,7 +36,7 @@ export function displayGallery(mediaData) {
                 <div class="gallery-card" id="${media.id}">
                     <figure class="gallery-photo">
 
-                            <video class="lightbox-link" src="/pictures/${media.photographerId}/${media.video}" alt="${media.title}">
+                            <video class="lightbox-link" src="/pictures/${media.photographerId}/${media.video}" alt="${media.title}" id="${media.id}">
                                 <source src="/pictures/${media.photographerId}/${media.video}" type="video/mp4" alt="${media.title}">
                                 Your browser does not support the video tag.
                             </video> 
@@ -126,9 +126,8 @@ export function displayGallery(mediaData) {
     }
 
 
-    // -----------------------------//////////// Likes system & Likes Display ////////////// ---------------------------------------------//
+    // -----------------------------//////////// Likes system & display ////////////// ---------------------------------------------//
 
-    // initialisation
     let totalNbrOfLikes = 0;
 
     // Get the total nbr of likes for the photographer
@@ -136,7 +135,7 @@ export function displayGallery(mediaData) {
         totalNbrOfLikes += galleryData[i].likes;
     };
 
-    // Display total nbr of likes in the static box
+    // Display total nbr of likes in the static box in the bottom right
     document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
 
     // like adding and remove system
@@ -148,9 +147,7 @@ export function displayGallery(mediaData) {
             if (event.target.className == "photo-caption-likes-heartIcon") {
     
                 event.target.classList.add("liked");
-                // increment number of likes of the photo
                 event.target.previousElementSibling.innerHTML ++;
-                // increment total number of likes of the photographer
                 totalNbrOfLikes++;
                 
                 return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
@@ -160,9 +157,7 @@ export function displayGallery(mediaData) {
             if (event.target.className == "photo-caption-likes-heartIcon liked") {
     
                 event.target.classList.remove("liked");
-                // decrement number of likes of the photo
                 event.target.previousElementSibling.innerHTML --;
-                // decrement total number of likes of the photographer
                 totalNbrOfLikes--;
                 
                 return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;

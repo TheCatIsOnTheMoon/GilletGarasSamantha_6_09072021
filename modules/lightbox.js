@@ -12,24 +12,70 @@ const gallery = document.querySelector("#article-gallery-cards");
 gallery.addEventListener("click", (event) => {
 
     if (event.target.className === "lightbox-link") {
-              
-        // take the src and alt data of the cliked picture to use it for the lightbox
-        launchLightbox(event.target.tagName,event.target.getAttribute('src'), event.target.getAttribute('alt'))
+
+        let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
+
+        displayLightbox(mediaPosition)
     }
 });
 
+//lightbox next media button
+document.getElementById("lightbox-nextBtn").addEventListener("click", (event) => {
+    displayNextMedia()
+});
 
-function launchLightbox(tagName, src, alt) {
+//lightbox previous media button
+document.getElementById("lightbox-prevBtn").addEventListener("click", (event) => {
+    displayPreviousMedia()
+});
+
+function getPosition(targetId, targetlist) {
+
+    for (let i = 0; i < targetlist.length; i++) {
+        if (targetlist[i].id.includes(targetId)) {
+            return i;
+        }
+    }
+    return null;
+}
+
+function displayNextMedia() {
+    let targetlist = document.querySelectorAll(".lightbox-link");
+    let mediaPosition = getPosition(document.querySelector(".lightbox-media").id, targetlist);
+
+    if (mediaPosition < targetlist.length - 1) {
+        displayLightbox(mediaPosition + 1)
+    }
+    return false;
+}
+
+function displayPreviousMedia() {
+    let targetlist = document.querySelectorAll(".lightbox-link");
+    let mediaPosition = getPosition(document.querySelector(".lightbox-media").id, targetlist);
+
+    if (mediaPosition !== 0) {
+        displayLightbox(mediaPosition - 1)
+    }
+    return false;
+}
+
+function displayLightbox(index) {
+
+    let targetlist = document.querySelectorAll(".lightbox-link");
 
     // console.log(`${tagName}, ${src}, ${alt}`)
     // output exemple : IMG, /pictures/930/Sport_Next_Hold.jpg, Climber
-    // output exemple : VIDEO, /pictures/930/Sport_Tricks_in_the_air.mp4, Tricks in the Air
+
+    let tagName = targetlist[index].tagName;
+    let src = targetlist[index].getAttribute('src');
+    let alt = targetlist[index].getAttribute('alt');
+    let id = targetlist[index].getAttribute('id');
 
     let lightboxDOM = "";
 
     if (tagName === "IMG") {
         lightboxDOM = `
-            <div class="lightbox-img">
+            <div class="lightbox-img lightbox-media" id="${id}">
                 <img src="${src}" alt="${alt}">
                 <div class="lightbox-title">${alt}</div>
             </div>
@@ -39,7 +85,7 @@ function launchLightbox(tagName, src, alt) {
 
     if (tagName === "VIDEO") {
         lightboxDOM = `
-            <div class="lightbox-video">
+            <div class="lightbox-video lightbox-media" id="${id}">
                 <video controls>
                     <source src="${src}" alt="${alt}">
                         Your browser does not support the video tag.
@@ -47,8 +93,8 @@ function launchLightbox(tagName, src, alt) {
                 <div class="lightbox-title">${alt}</div>
             </div>
         `
-    }  
- 
+    }
+
     document.getElementById("lightbox-container").innerHTML = lightboxDOM;
 
     // display the lightbox
@@ -59,11 +105,23 @@ function launchLightbox(tagName, src, alt) {
 // close lightbox
 document.getElementById("lightbox-closeBtn").addEventListener("click", function () {
     lightbox.style.display = "none";
-  });
+});
 
-// ACCESSIBILITY : close lightbox with escape key
+// ------------------------- ACCESSIBILITY --------------------- //
+
+//REF: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+
+// close lightbox and navigation prev/next media in lightbox
 document.onkeydown = function (event) {
     if (event.key === 'Escape') {
         lightbox.style.display = "none";
+    }
+
+    if (event.key === 'ArrowRight') {
+        displayNextMedia()
+    }
+
+    if (event.key === 'ArrowLeft') {
+        displayPreviousMedia()
     }
 };

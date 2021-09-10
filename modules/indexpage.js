@@ -55,7 +55,7 @@ export function filterPhotographers(photographersData) {
 
   // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Optional_chaining
 
-    document.addEventListener("click", (event)=>{
+  document.addEventListener("click", (event)=>{
   
     if(event.target !== navigation && event.target !== photographersCards){
 
