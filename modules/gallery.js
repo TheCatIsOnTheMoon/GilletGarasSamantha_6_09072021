@@ -14,7 +14,7 @@ export function displayGallery(mediaData) {
                 <div class="gallery-card">
                     <figure class="gallery-photo">
                         
-                            <img src="/pictures/${media.photographerId}/${media.image}" class="lightbox-link" alt="${media.title}" id="${media.id}"/>
+                            <img src="/pictures/${media.photographerId}/${media.image}" class="lightbox-link" alt="${media.title}" id="${media.id}" tabindex="0"/>
                         
                     </figure>
                     <figcaption class="gallery-photo-caption">
@@ -22,7 +22,7 @@ export function displayGallery(mediaData) {
                        
                         <div class="photo-caption-likes">
                             <p class="photo-caption-likes-number">${media.likes}</p>                           
-                            <span class="photo-caption-likes-heartIcon"> ♥ </span>
+                            <span class="photo-caption-likes-heartIcon" tabindex="0"> ♥ </span>
                         </div>
 
                     </figcaption>
@@ -36,7 +36,7 @@ export function displayGallery(mediaData) {
                 <div class="gallery-card" id="${media.id}">
                     <figure class="gallery-photo">
 
-                            <video class="lightbox-link" src="/pictures/${media.photographerId}/${media.video}" alt="${media.title}" id="${media.id}">
+                            <video class="lightbox-link" src="/pictures/${media.photographerId}/${media.video}" alt="${media.title}" id="${media.id}" tabindex="0">
                                 <source src="/pictures/${media.photographerId}/${media.video}" type="video/mp4" alt="${media.title}">
                                 Your browser does not support the video tag.
                             </video> 
@@ -47,7 +47,7 @@ export function displayGallery(mediaData) {
 
                         <div class="photo-caption-likes">
                             <p class="photo-caption-likes-number">${media.likes}</p>                           
-                            <span class="photo-caption-likes-heartIcon"> ♥ </span>
+                            <span class="photo-caption-likes-heartIcon" tabindex="0"> ♥ </span>
                         </div>
 
                     </figcaption>
@@ -139,33 +139,40 @@ export function displayGallery(mediaData) {
     document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
 
     // like adding and remove system
-    document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {
+    function likeSystem(event) {
 
-        // console.log(event.target) // output : <span class="photo-caption-likes-heartIcon">      
+        // console.log(event.target) // output : <span class="photo-caption-likes-heartIcon">
 
-        function likeSystem() {
-            if (event.target.className == "photo-caption-likes-heartIcon") {
-    
-                event.target.classList.add("liked");
-                event.target.previousElementSibling.innerHTML ++;
-                totalNbrOfLikes++;
-                
-                return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
+        if (event.target.className == "photo-caption-likes-heartIcon") {
 
-            }
+            event.target.classList.add("liked");
+            event.target.previousElementSibling.innerHTML ++;
+            totalNbrOfLikes++;
+            
+            return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
 
-            if (event.target.className == "photo-caption-likes-heartIcon liked") {
-    
-                event.target.classList.remove("liked");
-                event.target.previousElementSibling.innerHTML --;
-                totalNbrOfLikes--;
-                
-                return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
-            }
         }
 
-        likeSystem()
-        
+        if (event.target.className == "photo-caption-likes-heartIcon liked") {
+
+            event.target.classList.remove("liked");
+            event.target.previousElementSibling.innerHTML --;
+            totalNbrOfLikes--;
+            
+            return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
+        }
+    }
+
+    document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {                  
+        likeSystem(event)      
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            if (event.target.className == "photo-caption-likes-heartIcon" || event.target.className == "photo-caption-likes-heartIcon liked") {
+                likeSystem(event)
+            }
+        }
     });
 
 } // end of export function displayGallery(mediaData)

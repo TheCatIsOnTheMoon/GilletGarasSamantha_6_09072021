@@ -12,7 +12,7 @@ export function photographerPageGenerator(photographe) {
                 <h2 class="banner-infos-location">${photographe.city}, ${photographe.country}</h2>
                 <p class="banner-infos-tagLine">${photographe.tagline}</p>
                 <ul class="banner-infos-tags">
-                    ${photographe.tags.map((tag) => {return "<li><a href='#' class='tag'>" + "#" + tag + "</a></li>";}).join(' ')}    
+                    ${photographe.tags.map((tag) => {return "<li><a href='#' class='tag' tabindex='-1'>" + "#" + tag + "</a></li>";}).join(' ')}    
                 </ul>
             </div>
 
@@ -52,5 +52,20 @@ export function photographerPageGenerator(photographe) {
 
     document.getElementById("photographer-page-PriceNbr").innerHTML = photographeStaticBoxPriceDOM;  
 
-} // end of the export function photographerPageGenerator(photographe)
+    document.getElementById("dropdown-menu-popularity").addEventListener("focus", function () {
+        openDropDownMenu()
+      });
+      
+      document.getElementById("dropdown-menu-focus").addEventListener("focusout", function () {
+        closeDropDownMenu()
+      });
+      
+      function openDropDownMenu() {
+        document.querySelector(".dropdown-content").style.display = "block";
+      }
+      
+      function closeDropDownMenu() {
+        document.querySelector(".dropdown-content").style.display = "none";
+      }
 
+} // end of the export function photographerPageGenerator(photographe)

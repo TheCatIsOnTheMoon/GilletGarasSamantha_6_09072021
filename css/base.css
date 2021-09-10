@@ -92,7 +92,8 @@ a:visited {
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   background: var(--background-salmon);
   color: black;
 }
