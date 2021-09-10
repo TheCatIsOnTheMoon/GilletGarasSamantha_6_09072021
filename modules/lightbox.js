@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; // only when not in a module
 
 // DOM Elements --------------------------------------------------------
 
@@ -111,8 +111,8 @@ document.getElementById("lightbox-closeBtn").addEventListener("click", function 
 
 //REF: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
 
-// close lightbox and navigation prev/next media in lightbox
-document.onkeydown = function (event) {
+// close lightbox and navigation
+document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         lightbox.style.display = "none";
     }
@@ -124,4 +124,15 @@ document.onkeydown = function (event) {
     if (event.key === 'ArrowLeft') {
         displayPreviousMedia()
     }
-};
+
+    if (event.key === 'Enter') {
+        if (event.target.className === "lightbox-link") {
+
+            let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
+        
+            displayLightbox(mediaPosition)
+        }
+    }
+});
+
+

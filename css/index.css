@@ -2,6 +2,7 @@
 
 /* All my display:flex componants */
 header,
+main,
 .nav-photographer-categories ul,
 .photographers-cards,
 .photographer-card-tags {
@@ -26,6 +27,24 @@ header {
 
 main {
   margin: 5rem 7rem;
+  justify-content: center;
+}
+
+#index-page-staticBox {
+  position: fixed;
+  top: 1rem;
+
+  padding: .4rem;
+  font-weight: 500;
+
+  border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+  background-color: var(--background-salmon);
+}
+
+#index-page-staticBox:hover,
+#index-page-staticBox:focus {
+  background-color: var(--background-burgandy);
+  color: white;
 }
 
 h1 {
