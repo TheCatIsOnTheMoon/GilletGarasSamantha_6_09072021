@@ -1,20 +1,28 @@
-import {displayPhotographers} from "./modules/indexpage.js";
-import {filterPhotographers} from "./modules/indexpage.js";
-import {photographerPageGenerator} from "./modules/photographerpage.js";
-import {displayGallery} from "./modules/gallery.js";
+import {
+  displayPhotographers
+} from "./modules/indexpage.js";
+import {
+  filterPhotographers
+} from "./modules/indexpage.js";
+import {
+  photographerPageGenerator
+} from "./modules/photographerpage.js";
+import {
+  displayGallery
+} from "./modules/gallery.js";
+
 
 // fetch data
 fetch("./FishEyeData.json")
+
   .then((response) => {
     if (!response.ok) {
       throw new Error("HTTP error, status = " + response.status);
     }
-    // console.log(response);
     return response.json();
   })
-  .then((data) => {
 
-    // console.log(data);
+  .then((data) => {
 
     const photographersData = data.photographers;
     const mediaData = data.media;
@@ -29,15 +37,18 @@ fetch("./FishEyeData.json")
       let filteredDataMedia = mediaData.filter(media => media.photographerId == urlName);
 
       photographerPageGenerator(filteredDataPhotographers[0])
-      displayGallery(filteredDataMedia)
-
+      return displayGallery(filteredDataMedia)
     }
 
-    filterPhotographers(photographersData);
-    displayPhotographers(photographersData);
+    if (document.URL.includes('index')) {
+
+      filterPhotographers(photographersData);
+      return displayPhotographers(photographersData);
+    }
 
     return false
   })
+  
   .catch(function (error) {
     console.log(error);
   });

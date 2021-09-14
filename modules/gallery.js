@@ -74,105 +74,129 @@ export function displayGallery(mediaData) {
     document.getElementById("article-gallery-cards").innerHTML = photographeGalleryDOM;
 
 
+
     // ------------------------------//////////// Sorting System ////////////// ----------------------------------------------//
-
-    let sortedData = "";
-
-    document.getElementById("dropdown-menu-popularity").addEventListener("click", function () {
-        sortedData = galleryData.sort(sortByPopularity);
-        displayGallery(sortedData)
-    });
-
-    document.getElementById("dropdown-menu-date").addEventListener("click", function () {
-        sortedData = galleryData.sort(sortByDate);
-        displayGallery(sortedData)
-    });
-
-    document.getElementById("dropdown-menu-title").addEventListener("click", function () {
-        sortedData = galleryData.sort(sortByTitle);
-        displayGallery(sortedData)
-    });
-
     // REF : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
-    function sortByPopularity(a, b) {
-        if (a.likes > b.likes) {
-            return -1;
-        }
-        if (b.likes > a.likes) {
-            return 1;
-        }
-        return 0
-    }
+    function sortGallery(galleryData) {
+        // initialisation -------------------
+        let sortedData = "";
 
-    function sortByDate(a, b) {
-        if (a.date > b.date) {
-            return -1;
-        }
-        if (b.date > a.date) {
-            return 1;
-        }
-        return 0
-    }
+        // events ---------------------------
+        document.getElementById("dropdown-menu-popularity").addEventListener("click", function () {
+            sortedData = galleryData.sort(sortByPopularity);
+            displayGallery(sortedData)
+        });
 
-    function sortByTitle(a, b) {
-        if (a.title > b.title) {
-            return 1;
-        }
-        if (b.title > a.title) {
-            return -1;
-        }
-        return 0
-    }
+        document.getElementById("dropdown-menu-date").addEventListener("click", function () {
+            sortedData = galleryData.sort(sortByDate);
+            displayGallery(sortedData)
+        });
 
+        document.getElementById("dropdown-menu-title").addEventListener("click", function () {
+            sortedData = galleryData.sort(sortByTitle);
+            displayGallery(sortedData)
+        });
 
-    // -----------------------------//////////// Likes system & display ////////////// ---------------------------------------------//
-
-    let totalNbrOfLikes = 0;
-
-    // Get the total nbr of likes for the photographer
-    for (let i = 0; i < galleryData.length; i++) {
-        totalNbrOfLikes += galleryData[i].likes;
-    };
-
-    // Display total nbr of likes in the static box in the bottom right
-    document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
-
-    // like adding and remove system
-    function likeSystem(event) {
-
-        // console.log(event.target) // output : <span class="photo-caption-likes-heartIcon">
-
-        if (event.target.className == "photo-caption-likes-heartIcon") {
-
-            event.target.classList.add("liked");
-            event.target.previousElementSibling.innerHTML ++;
-            totalNbrOfLikes++;
-            
-            return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
-
-        }
-
-        if (event.target.className == "photo-caption-likes-heartIcon liked") {
-
-            event.target.classList.remove("liked");
-            event.target.previousElementSibling.innerHTML --;
-            totalNbrOfLikes--;
-            
-            return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
-        }
-    }
-
-    document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {                  
-        likeSystem(event)      
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            if (event.target.className == "photo-caption-likes-heartIcon" || event.target.className == "photo-caption-likes-heartIcon liked") {
-                likeSystem(event)
+        // functions -----------------------
+        function sortByPopularity(a, b) {
+            if (a.likes > b.likes) {
+                return -1;
             }
+            if (b.likes > a.likes) {
+                return 1;
+            }
+            return 0
         }
-    });
+
+        function sortByDate(a, b) {
+            if (a.date > b.date) {
+                return -1;
+            }
+            if (b.date > a.date) {
+                return 1;
+            }
+            return 0
+        }
+
+        function sortByTitle(a, b) {
+            if (a.title > b.title) {
+                return 1;
+            }
+            if (b.title > a.title) {
+                return -1;
+            }
+            return 0
+        }
+    }
+
+    sortGallery(galleryData);
+
+
+    // ------------------------------//////////// Sorting System ////////////// ----------------------------------------------//
+    function likingSystem(galleryData) {
+
+        // initialisation -------------------
+        let totalNbrOfLikes = 0;
+
+        displayTotalNbrOfLikes(galleryData)
+
+        // events ---------------------------
+        document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {
+            likesRemoveAndAdd(event)
+        });
+
+        document.addEventListener('keydown', (event) => {
+
+            if (event.key === 'Enter') {
+
+                if (event.target.className == "photo-caption-likes-heartIcon" || event.target.className == "photo-caption-likes-heartIcon liked") {
+                    return likesRemoveAndAdd(event)
+                }
+
+            }
+        });
+
+        // functions -----------------------
+
+        // Display total nbr of likes in the static box in the bottom right
+        function displayTotalNbrOfLikes(galleryData) {
+
+            // Get the total nbr of likes for the photographer
+            for (let i = 0; i < galleryData.length; i++) {
+                totalNbrOfLikes += Number(galleryData[i].likes);
+            };
+
+            return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
+        }
+
+        // adding and remove likes
+        function likesRemoveAndAdd(event) {
+
+            if (event.target.className === "photo-caption-likes-heartIcon liked") {
+
+                event.target.classList.remove("liked");
+                event.target.previousElementSibling.innerHTML--;
+                totalNbrOfLikes--;
+
+                return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
+            }
+
+            if (event.target.className === "photo-caption-likes-heartIcon") {
+
+                event.target.classList.add("liked");
+                event.target.previousElementSibling.innerHTML++;
+                totalNbrOfLikes++;
+
+                return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
+
+            }
+
+            return false
+
+        }
+    }
+
+    likingSystem(galleryData);
 
 } // end of export function displayGallery(mediaData)

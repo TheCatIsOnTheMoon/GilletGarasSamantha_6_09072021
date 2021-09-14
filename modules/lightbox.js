@@ -15,7 +15,7 @@ gallery.addEventListener("click", (event) => {
 
         let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
 
-        displayLightbox(mediaPosition)
+        return displayLightbox(mediaPosition)
     }
 });
 
@@ -28,6 +28,48 @@ document.getElementById("lightbox-nextBtn").addEventListener("click", (event) =>
 document.getElementById("lightbox-prevBtn").addEventListener("click", (event) => {
     displayPreviousMedia()
 });
+
+// close lightbox
+document.getElementById("lightbox-closeBtn").addEventListener("click", function () {
+    lightbox.style.display = "none";
+});
+
+//  ACCESSIBILITY --------------------- 
+
+//REF: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+
+// close lightbox and navigation
+document.addEventListener('keydown', (event) => {
+
+    if (event.key === 'Escape') {
+
+        return lightbox.style.display = "none";
+    }
+
+    if (event.key === 'ArrowRight') {
+
+        return displayNextMedia()
+    }
+
+    if (event.key === 'ArrowLeft') {
+
+        return displayPreviousMedia()
+    }
+
+    if (event.key === 'Enter') {
+
+        if (event.target.className === "lightbox-link") {
+
+            let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
+        
+            return displayLightbox(mediaPosition)
+        }
+    }
+});
+
+
+
+// Lightbox functions --------------------------------------------------------------
 
 function getPosition(targetId, targetlist) {
 
@@ -100,39 +142,3 @@ function displayLightbox(index) {
     // display the lightbox
     return lightbox.style.display = "block";
 }
-
-
-// close lightbox
-document.getElementById("lightbox-closeBtn").addEventListener("click", function () {
-    lightbox.style.display = "none";
-});
-
-// ------------------------- ACCESSIBILITY --------------------- //
-
-//REF: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
-
-// close lightbox and navigation
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        lightbox.style.display = "none";
-    }
-
-    if (event.key === 'ArrowRight') {
-        displayNextMedia()
-    }
-
-    if (event.key === 'ArrowLeft') {
-        displayPreviousMedia()
-    }
-
-    if (event.key === 'Enter') {
-        if (event.target.className === "lightbox-link") {
-
-            let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
-        
-            displayLightbox(mediaPosition)
-        }
-    }
-});
-
-

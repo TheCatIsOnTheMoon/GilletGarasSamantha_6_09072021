@@ -225,8 +225,7 @@ main {
   cursor: pointer;
 }
 
-.photo-caption-likes-heartIcon:hover,
-.photo-caption-likes-heartIcon:focus {
+.photo-caption-likes-heartIcon:hover {
   color: var(--text-salmon);
 }
 
@@ -234,8 +233,7 @@ main {
   color: var(--text-salmon);
 }
 
-.liked:hover,
-.liked:focus {
+.liked:hover {
   color: var(--text-burgandy);
 }
 

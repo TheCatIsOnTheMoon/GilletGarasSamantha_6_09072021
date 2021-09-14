@@ -66,29 +66,30 @@ export function filterPhotographers(photographersData) {
   });
 
   function tagStylisation(selectedTag) {
-    // console.log(selectedTag); //output : OK
 
     document.querySelectorAll(".tag").forEach(element => {
       let tag = element.dataset.name;
-      // console.log(tag); //output : OK
 
       if (tag == selectedTag) {
+
         element.classList.add("selected-tag")
+
       } else {
+
         element.classList.remove("selected-tag")
+
       }
     });
   }
 
   function specificPhotographer(tagName) {
-    // console.log(tagName); //output : OK
+
     let filterResult = [];
 
     filterResult = photographersData.filter(photographer => photographer.tags.includes(tagName));
-    // console.log(filterResult); //output : OK
 
-    // relaunch the display function but with omly the filtered ones
-    displayPhotographers(filterResult);
+    // relaunch the display function but with only the filtered ones
+    return displayPhotographers(filterResult);
   }
 
 }
