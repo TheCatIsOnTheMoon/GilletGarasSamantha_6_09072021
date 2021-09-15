@@ -133,13 +133,13 @@ export function displayGallery(mediaData) {
     sortGallery(galleryData);
 
 
-    // ------------------------------//////////// Sorting System ////////////// ----------------------------------------------//
-    function likingSystem(galleryData) {
+    // ------------------------------//////////// liking System ////////////// ----------------------------------------------//
+    function likingSystem() {
 
         // initialisation -------------------
         let totalNbrOfLikes = 0;
 
-        displayTotalNbrOfLikes(galleryData)
+        displayTotalNbrOfLikes()
 
         // events ---------------------------
         document.querySelector("#article-gallery-cards").addEventListener("click", (event) => {
@@ -160,7 +160,7 @@ export function displayGallery(mediaData) {
         // functions -----------------------
 
         // Display total nbr of likes in the static box in the bottom right
-        function displayTotalNbrOfLikes(galleryData) {
+        function displayTotalNbrOfLikes() {
 
             // Get the total nbr of likes for the photographer
             for (let i = 0; i < galleryData.length; i++) {
@@ -197,6 +197,6 @@ export function displayGallery(mediaData) {
         }
     }
 
-    likingSystem(galleryData);
+    likingSystem();
 
 } // end of export function displayGallery(mediaData)
