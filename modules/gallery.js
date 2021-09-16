@@ -14,7 +14,7 @@ export function displayGallery(mediaData) {
                 <div class="gallery-card">
                     <figure class="gallery-photo">
                         
-                            <img src="/pictures/${media.photographerId}/${media.image}" class="lightbox-link" alt="${media.title}" id="${media.id}" tabindex="0"/>
+                            <img src="img/${media.photographerId}/${media.image}" class="lightbox-link" alt="${media.title}" id="${media.id}" tabindex="0"/>
                         
                     </figure>
                     <figcaption class="gallery-photo-caption">
@@ -36,8 +36,8 @@ export function displayGallery(mediaData) {
                 <div class="gallery-card" id="${media.id}">
                     <figure class="gallery-photo">
 
-                            <video class="lightbox-link" src="/pictures/${media.photographerId}/${media.video}" alt="${media.title}" id="${media.id}" tabindex="0">
-                                <source src="/pictures/${media.photographerId}/${media.video}" type="video/mp4" alt="${media.title}">
+                            <video class="lightbox-link" src="img/${media.photographerId}/${media.video}" alt="${media.title}" id="${media.id}" tabindex="0">
+                                <source src="img/${media.photographerId}/${media.video}" type="video/mp4" alt="${media.title}">
                                 Your browser does not support the video tag.
                             </video> 
                        

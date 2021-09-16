@@ -14,7 +14,7 @@ export function displayPhotographers(photographersData) {
 
               <a href="photographer-page.html?id=${photographer.id}" tabindex="0">
                 <figure class="photographer-card-picture">
-                  <img src= pictures/Photographers_ID_Photos/${photographer.portrait} alt= ${photographer.portrait} />
+                  <img src= img/Photographers_ID_Photos/${photographer.portrait} alt= ${photographer.portrait} />
                 </figure>
                 <figcaption class="photographer-card-name">
                   <h2>${photographer.name}</h2>
