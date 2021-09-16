@@ -81,12 +81,7 @@ main {
 
 /* Gallery */
 
-.gallery-filterChoices p {
-  font-weight: bold;
-}
-
 /* dropdown menu */
-
 .dropdown-menu,
 .dropdown-menu button,
 .dropdown-content {
@@ -98,48 +93,26 @@ main {
   display: inline-block;
   margin-left: 2rem;
   top: -1rem;
-
-  border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
-  background-color: var(--background-burgandy);
 }
 
 .dropdown-menu button {
-  border: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: .5px white;
   background-color: var(--background-burgandy);
   color: #ffffff;
+  font-weight: bold;
   padding: 1rem 0.5rem;
 
-  text-align: left;
   position: relative;
-
   cursor: pointer;
-}
-
-.dropdown-menu button p {
-  font-weight: 500;
-  font-size: 0.9em;
-  line-height: 1em;
 }
 
 .dropdown-menu-icon {
   position: absolute;
-}
-
-#dropdown-menu-arrowUp,
-#dropdown-menu-arrowDown {
-  position: absolute;
-  top: 0.9rem;
+  top: 1rem;
   right: 1rem;
-
   width: 0.9rem;
-}
-
-#dropdown-menu-arrowUp {
-  display: none;
-}
-
-#dropdown-menu-arrowDown {
-  display: block;
 }
 
 .dropdown-content {
@@ -150,20 +123,12 @@ main {
   z-index: 1;
 }
 
-#dropdown-menu-popularity {
-  border-radius: 0.2rem 0.2rem 0rem 0rem;
-}
-
-#dropdown-menu-title {
-  border-radius: 0rem 0rem 0.2rem 0.2rem;
-}
-
-/* dropdown menu hover stuffs*/
+/* dropdown menu appearance*/
 .dropdown-menu:hover .dropdown-content {
   display: block;
 }
 
-#dropdown-menu-popularity:focus .dropdown-content {
+.dropdown-menu:focus-within .dropdown-content {
   display: block;
 }
 
@@ -171,6 +136,26 @@ main {
 .dropdown-menu button:focus {
   background-color: var(--background-salmon);
   color: black;
+}
+
+#dropdown-menu-popularity {
+  border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+}
+
+.dropdown-menu:hover #dropdown-menu-popularity {
+  border-radius: 0.2rem 0.2rem 0rem 0rem;
+}
+
+#dropdown-menu-title {
+  border-radius: 0rem 0rem 0.2rem 0.2rem;
+}
+
+#dropdown-menu-arrowUp {
+  display: none;
+}
+
+#dropdown-menu-arrowDown {
+  display: block;
 }
 
 /* actual photo gallery */
