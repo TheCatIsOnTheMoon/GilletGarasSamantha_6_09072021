@@ -159,8 +159,7 @@ main {
 }
 
 /* dropdown menu hover stuffs*/
-.dropdown-menu:hover .dropdown-content,
-.dropdown-menu:focus .dropdown-content {
+.dropdown-menu:hover .dropdown-content {
   display: block;
 }
 

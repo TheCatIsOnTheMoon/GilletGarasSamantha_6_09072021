@@ -1,15 +1,7 @@
-import {
-  displayPhotographers
-} from "./modules/indexpage.js";
-import {
-  filterPhotographers
-} from "./modules/indexpage.js";
-import {
-  photographerPageGenerator
-} from "./modules/photographerpage.js";
-import {
-  displayGallery
-} from "./modules/gallery.js";
+import {displayPhotographers} from "./modules/indexpage.js";
+import {filterPhotographers} from "./modules/indexpage.js";
+import {photographerPageGenerator} from "./modules/photographerpage.js";
+import {displayGallery} from "./modules/gallery.js";
 
 
 // fetch data
@@ -46,7 +38,7 @@ fetch("./FishEyeData.json")
       return displayPhotographers(photographersData);
     }
 
-    return false
+    return displayPhotographers(photographersData);
   })
   
   .catch(function (error) {
@@ -60,7 +52,7 @@ fetch("./FishEyeData.json")
   // accessibility stuff :
 
     // focus modal for keybord navigation : 
-          // ref : https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
+      // ref : https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
     // focus menu deroulant tris
 
   //CSS Stuff :
