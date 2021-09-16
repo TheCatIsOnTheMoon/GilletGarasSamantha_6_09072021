@@ -49,11 +49,6 @@ fetch("./FishEyeData.json")
 
   // TO DO to finish :
 
-  // accessibility stuff :
-
-    // focus modal for keybord navigation : 
-      // ref : https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
-
   //CSS Stuff :
 
     // button "passer au contenu" uniquement quand scroll
@@ -62,8 +57,3 @@ fetch("./FishEyeData.json")
   // Bug resolution :
 
     //liking not working anymore after triage function
-
-  // final touch :
-    // html/css verif
-    // access auto verif
-    // test screen reader

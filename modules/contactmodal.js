@@ -3,42 +3,32 @@
 // DOM Elements --------------------------------------------------------
 const modalbg = document.querySelector(".contact-form-bground");
 const form = document.getElementById("form");
+const mainContent = document.getElementById("main-content");
 
-// Contact Modal Form Events --------------------------------------------------------------
+// Contact Modal Form Events --------------------------------------------
 
 // launch contact modal form
 document.getElementById("contact-modal-form-launchBtn").addEventListener("click", function () {
-    modalbg.style.display = "block";
-  });
+  launchModalForm()
+});
 
 // close contact modal form
 document.getElementById("closeBtn").addEventListener("click", function () {
-  modalbg.style.display = "none";
+  closeModalForm()
 });
 
-// ACCESSIBILITY : close contact modal form with escape key --------------------------
+// ACCESSIBILITY : close contact modal form with escape key ---------------
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' ) {
-    modalbg.style.display = "none";
+  if (event.key === 'Escape') {
+    closeModalForm()
   }
 });
 
-// 'keyCode' is deprecated.
-
-// keyName == 'escape'
-// keyCode == 27
-// KeyboardEvent: key='Escape' | code='Escape'
-
-// https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
-
-
-// initialize variables to stock verification results
 let isNameValid = false;
 let isEmailValid = false;
 let isMessageValid = false;
 
 // verify input data when the submit btn is clicked (and when DOM is finished loading)
-// stock the verification into variables
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-submit").addEventListener("click", () => {
     isNameValid = nameInputValidation();
@@ -47,8 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// function to lauch the succes message and hide the form
-// with condition that all the variables are true and prevent default form submit action
+// lauch the succes message and hide the form ----------------------------
 function LaunchSuccesMessage(event) {
   if (
     isNameValid === true &&
@@ -62,16 +51,30 @@ function LaunchSuccesMessage(event) {
   }
 }
 
-// attach event listener to lauch the succes message (needs to be after the related function)
 form.addEventListener("submit", LaunchSuccesMessage, true);
 
-// close modal with the succes message
+// close modal with the succes message -----------------------------------
 document
   .getElementById("close-btn-validation-message")
   .addEventListener("click", function () {
-    modalbg.style.display = "none";
-  });
+    closeModalForm()
+});
 
+
+// open & close functions ------------------------------------------
+function launchModalForm() {
+  modalbg.style.display = "block";
+  form.setAttribute('aria-hidden', 'false');
+  mainContent.setAttribute('aria-hidden', 'true');
+  desactivateBackgroundFocus();
+}
+
+function closeModalForm() {
+  modalbg.style.display = "none";
+  form.setAttribute('aria-hidden', 'true');
+  mainContent.setAttribute('aria-hidden', 'false');
+  reactivateBackgroundFocus();
+}
 
 // validation functions -------------------------------------------------------
 
@@ -97,7 +100,7 @@ function emailInputValidation() {
   if (
     !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
       email.value
-    ) // Regex to match a valid email address. ex: test@test.com
+    ) // Regex format: test@test.com
   ) {
     ErrorInputBorder(email);
     emailError.innerHTML = "Veuillez entrer un E-mail valide";
@@ -124,12 +127,59 @@ function messageInputValidation() {
 
 // error border functions -------------------------------------------------------
 
-// Add a red border to a non valid input
 function ErrorInputBorder(inputID) {
   inputID.style.borderColor = "#901c1c";
 }
 
-// remove border from valid input
 function ValidInputBorder(inputID) {
   inputID.style.borderColor = "#ffffff";
 }
+
+
+
+// modals focus fontions ---------------------------------------------
+
+function desactivateBackgroundFocus() {
+
+  function desactivateFocusElement(element) {
+    element.setAttribute("tabindex", "-1");
+  }
+  
+  desactivateFocusElement(document.querySelector(".logo-fisheye"));
+  desactivateFocusElement(document.getElementById("contact-modal-form-launchBtn"));
+  desactivateFocusElement(document.getElementById("dropdown-menu-popularity"));
+  desactivateFocusElement(document.getElementById("dropdown-menu-date"));
+  desactivateFocusElement(document.getElementById("dropdown-menu-title"));
+  
+  document.querySelectorAll(".lightbox-link").forEach(element => {
+    desactivateFocusElement(element)
+  });
+  
+  document.querySelectorAll(".photo-caption-likes-heartIcon").forEach(element => {
+    desactivateFocusElement(element)
+  });
+}
+
+function reactivateBackgroundFocus() {
+  
+  function activateFocusElement(element) {
+    element.setAttribute("tabindex", "0");
+  }
+  
+  activateFocusElement(document.querySelector(".logo-fisheye"));
+  activateFocusElement(document.getElementById("contact-modal-form-launchBtn"));
+  activateFocusElement(document.getElementById("dropdown-menu-popularity"));
+  activateFocusElement(document.getElementById("dropdown-menu-date"));
+  activateFocusElement(document.getElementById("dropdown-menu-title"));
+  
+  document.querySelectorAll(".lightbox-link").forEach(element => {
+    activateFocusElement(element)
+  });
+  
+  document.querySelectorAll(".photo-caption-likes-heartIcon").forEach(element => {
+    activateFocusElement(element)
+  });
+}
+
+
+

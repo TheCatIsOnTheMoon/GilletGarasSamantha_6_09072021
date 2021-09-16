@@ -4,6 +4,7 @@
 
 const lightbox = document.getElementById("lightboxModal");
 const gallery = document.querySelector("#article-gallery-cards");
+const mainContent = document.getElementById("main-content");
 
 
 // Lightbox Events --------------------------------------------------------------
@@ -15,6 +16,7 @@ gallery.addEventListener("click", (event) => {
 
         let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
 
+        desactivateBackgroundFocus();
         return displayLightbox(mediaPosition)
     }
 });
@@ -31,7 +33,7 @@ document.getElementById("lightbox-prevBtn").addEventListener("click", (event) =>
 
 // close lightbox
 document.getElementById("lightbox-closeBtn").addEventListener("click", function () {
-    lightbox.style.display = "none";
+    closeModalLightbox()
 });
 
 //  ACCESSIBILITY --------------------- 
@@ -43,7 +45,7 @@ document.addEventListener('keydown', (event) => {
 
     if (event.key === 'Escape') {
 
-        return lightbox.style.display = "none";
+        return closeModalLightbox()
     }
 
     if (event.key === 'ArrowRight') {
@@ -61,7 +63,8 @@ document.addEventListener('keydown', (event) => {
         if (event.target.className === "lightbox-link") {
 
             let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
-        
+
+            desactivateBackgroundFocus();
             return displayLightbox(mediaPosition)
         }
     }
@@ -70,6 +73,13 @@ document.addEventListener('keydown', (event) => {
 
 
 // Lightbox functions --------------------------------------------------------------
+
+function closeModalLightbox() {
+    lightbox.style.display = "none";
+    lightbox.setAttribute('aria-hidden', 'true');
+    mainContent.setAttribute('aria-hidden', 'false');
+    reactivateBackgroundFocus();
+}
 
 function getPosition(targetId, targetlist) {
 
@@ -140,5 +150,51 @@ function displayLightbox(index) {
     document.getElementById("lightbox-container").innerHTML = lightboxDOM;
 
     // display the lightbox
+    lightbox.setAttribute('aria-hidden', 'false');
+    mainContent.setAttribute('aria-hidden', 'true');
     return lightbox.style.display = "block";
+}
+
+// modals focus fontions ---------------------------------------------
+
+function desactivateBackgroundFocus() {
+
+    function desactivateFocusElement(element) {
+        element.setAttribute("tabindex", "-1");
+    }
+
+    desactivateFocusElement(document.querySelector(".logo-fisheye"));
+    desactivateFocusElement(document.getElementById("contact-modal-form-launchBtn"));
+    desactivateFocusElement(document.getElementById("dropdown-menu-popularity"));
+    desactivateFocusElement(document.getElementById("dropdown-menu-date"));
+    desactivateFocusElement(document.getElementById("dropdown-menu-title"));
+
+    document.querySelectorAll(".lightbox-link").forEach(element => {
+        desactivateFocusElement(element)
+    });
+
+    document.querySelectorAll(".photo-caption-likes-heartIcon").forEach(element => {
+        desactivateFocusElement(element)
+    });
+}
+
+function reactivateBackgroundFocus() {
+
+    function activateFocusElement(element) {
+        element.setAttribute("tabindex", "0");
+    }
+
+    activateFocusElement(document.querySelector(".logo-fisheye"));
+    activateFocusElement(document.getElementById("contact-modal-form-launchBtn"));
+    activateFocusElement(document.getElementById("dropdown-menu-popularity"));
+    activateFocusElement(document.getElementById("dropdown-menu-date"));
+    activateFocusElement(document.getElementById("dropdown-menu-title"));
+
+    document.querySelectorAll(".lightbox-link").forEach(element => {
+        activateFocusElement(element)
+    });
+
+    document.querySelectorAll(".photo-caption-likes-heartIcon").forEach(element => {
+        activateFocusElement(element)
+    });
 }
