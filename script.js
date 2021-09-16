@@ -53,11 +53,9 @@ fetch("./FishEyeData.json")
 
     // focus modal for keybord navigation : 
       // ref : https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
-    // focus menu deroulant tris
 
   //CSS Stuff :
 
-    // barres de separation blanche dans menu deroulant
     // button "passer au contenu" uniquement quand scroll
     // better gallery display with calc use
 
