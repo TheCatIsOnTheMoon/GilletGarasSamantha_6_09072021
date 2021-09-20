@@ -1,31 +1,34 @@
-@media all and (max-width: 930px) {
-
-  /* index-page */
+@media all and (max-width: 1240px) {
   header {
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
     flex-direction: column;
+    margin-top: 2rem;
   }
 
   main {
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
     padding: 0;
   }
 
   main h1 {
-    font-size: 1rem;
+    font-size: 2rem;
 
-    right: 1.5rem;
-    top: 0.5rem;
-  }
-
-
-  .logo-fisheye svg {
-    width: 8rem;
+    right: 3rem;
+    top: -1rem;
   }
 
   .nav-photographer-categories ul {
+    width: 90vw;
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+@media all and (max-width: 930px) {
+
+  /* index-page */
+  .logo-fisheye img {
+    width: 10rem;
   }
 
   .nav-photographer-categories ul li {
@@ -113,7 +116,31 @@
   }
 }
 
+@media all and (max-width: 560px) {
+
+  main h1 {
+    font-size: 1.5rem;
+
+    right: 1.5rem;
+    top: 0rem;
+  }
+}
+
 @media all and (max-width: 450px) {
+
+  header {
+    margin: 1rem 1rem;
+  }
+
+  main {
+    margin: 1rem 1rem;
+  }
+
+  main h1 {
+    font-size: 1rem;
+    top: 0.5rem;
+  }
+
   .gallery-cards {
     flex-direction: column;
     gap: 0;

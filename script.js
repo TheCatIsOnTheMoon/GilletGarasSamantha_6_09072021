@@ -39,6 +39,19 @@ fetch("./json/FishEyeData.json")
       return false
     }
 
+    // gestion of the button return to top when screen is scrolled
+    window.onscroll = function () {
+      const returnToTopBtn = document.getElementById("index-page-staticBox");
+
+      returnToTopBtn.style.display = "block";
+  
+      function fadeReturnToTopBtn(){
+        returnToTopBtn.style.display = "none";
+      };
+
+      setTimeout(function(){ fadeReturnToTopBtn (); }, 5000);
+    }
+
     // Display the main/index page
     filterPhotographers(photographersData);
     return displayPhotographers(photographersData);
@@ -49,15 +62,3 @@ fetch("./json/FishEyeData.json")
   });
 
 
-// gestion of the button return to top when screen is scrolled
-window.onscroll = function () {
-  const returnToTopBtn = document.getElementById("index-page-staticBox");
-
-  returnToTopBtn.style.display = "block";
-  
-  function fadeReturnToTopBtn(){
-    returnToTopBtn.style.display = "none";
-  };
-
-  setTimeout(function(){ fadeReturnToTopBtn (); }, 5000);
-}
