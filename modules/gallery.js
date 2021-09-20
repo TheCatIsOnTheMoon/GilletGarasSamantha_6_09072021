@@ -79,66 +79,32 @@ export function displayGallery(mediaData) {
     // REF : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
     function sortGallery(galleryData) {
-        // initialisation -------------------
+
         let sortedData = "";
 
-        // events ---------------------------
         document.getElementById("dropdown-menu-popularity").addEventListener("click", function () {
-            sortedData = galleryData.sort(sortByPopularity);
+            sortedData = galleryData.sort((a, b) => a.likes < b.likes);
             displayGallery(sortedData)
         });
 
         document.getElementById("dropdown-menu-date").addEventListener("click", function () {
-            sortedData = galleryData.sort(sortByDate);
+            sortedData = galleryData.sort((a, b) => a.date > b.date);
             displayGallery(sortedData)
         });
 
         document.getElementById("dropdown-menu-title").addEventListener("click", function () {
-            sortedData = galleryData.sort(sortByTitle);
+            sortedData = galleryData.sort((a, b) => a.title > b.title);
             displayGallery(sortedData)
         });
-
-        // functions -----------------------
-        function sortByPopularity(a, b) {
-            if (a.likes > b.likes) {
-                return -1;
-            }
-            if (b.likes > a.likes) {
-                return 1;
-            }
-            return 0
-        }
-
-        function sortByDate(a, b) {
-            if (a.date > b.date) {
-                return -1;
-            }
-            if (b.date > a.date) {
-                return 1;
-            }
-            return 0
-        }
-
-        function sortByTitle(a, b) {
-            if (a.title > b.title) {
-                return 1;
-            }
-            if (b.title > a.title) {
-                return -1;
-            }
-            return 0
-        }
     }
 
     sortGallery(galleryData);
-
 
     // ------------------------------//////////// liking System ////////////// ----------------------------------------------//
     function likingSystem() {
 
         // initialisation -------------------
         let totalNbrOfLikes = 0;
-
         displayTotalNbrOfLikes()
 
         // events ---------------------------

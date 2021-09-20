@@ -32,12 +32,7 @@ fetch("./FishEyeData.json")
       return displayGallery(filteredDataMedia)
     }
 
-    if (document.URL.includes('index')) {
-
-      filterPhotographers(photographersData);
-      return displayPhotographers(photographersData);
-    }
-
+    filterPhotographers(photographersData);
     return displayPhotographers(photographersData);
   })
   
