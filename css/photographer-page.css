@@ -150,9 +150,9 @@ main {
   border-radius: 0rem 0rem 0.2rem 0.2rem;
 }
 
-#dropdown-menu-arrowUp {
+/* #dropdown-menu-arrowUp {
   display: none;
-}
+} */
 
 #dropdown-menu-arrowDown {
   display: block;
@@ -162,20 +162,28 @@ main {
 .gallery-cards {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.5rem;
+  justify-content: center;
+
+  gap: 50px;
 }
 
-/* .gallery-card {} */
+.gallery-card {
+  width: calc(100% / 3 - 2 * 20px);
+  height: auto;
+
+  aspect-ratio: 1 / 1;
+}
+
 
 .gallery-photo img,
 .gallery-photo video {
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 0.2rem;
-  height: 18rem;
-  width: 19rem;
-  display: block;
+
+  max-width: 100%;
+  /* max-height: 100%; */
+  /* aspect-ratio: 1 / 1; */
 
   cursor: pointer;
 }
