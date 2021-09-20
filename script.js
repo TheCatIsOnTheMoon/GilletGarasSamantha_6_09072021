@@ -1,10 +1,12 @@
+//modules
 import {displayPhotographers} from "./modules/indexpage.js";
 import {filterPhotographers} from "./modules/indexpage.js";
 import {photographerPageGenerator} from "./modules/photographerpage.js";
 import {displayGallery} from "./modules/gallery.js";
+import {sortGallery} from "./modules/sortgallery.js";
+import {likeSystem} from "./modules/likesystem.js";
 
-
-// fetch data
+//main
 fetch("./FishEyeData.json")
 
   .then((response) => {
@@ -19,6 +21,7 @@ fetch("./FishEyeData.json")
     const photographersData = data.photographers;
     const mediaData = data.media;
 
+    // display the specifics photographers pages
     // get the photographer id in the url and filter data with it
     if (document.URL.includes('photographer-page')) {
 
@@ -29,9 +32,14 @@ fetch("./FishEyeData.json")
       let filteredDataMedia = mediaData.filter(media => media.photographerId == urlName);
 
       photographerPageGenerator(filteredDataPhotographers[0])
-      return displayGallery(filteredDataMedia)
+      displayGallery(filteredDataMedia)
+      sortGallery(filteredDataMedia);
+      likeSystem(filteredDataMedia);
+
+      return false
     }
 
+    // Display the main/index page
     filterPhotographers(photographersData);
     return displayPhotographers(photographersData);
   })
@@ -39,16 +47,3 @@ fetch("./FishEyeData.json")
   .catch(function (error) {
     console.log(error);
   });
-
-
-
-  // TO DO to finish :
-
-  //CSS Stuff :
-
-    // button "passer au contenu" uniquement quand scroll
-    // better gallery display with calc use
-
-  // Bug resolution :
-
-    //liking not working anymore after triage function
