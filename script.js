@@ -1,13 +1,13 @@
 //modules
-import {displayPhotographers} from "./modules/indexpage.js";
-import {filterPhotographers} from "./modules/indexpage.js";
-import {photographerPageGenerator} from "./modules/photographerpage.js";
-import {displayGallery} from "./modules/gallery.js";
-import {sortGallery} from "./modules/sortgallery.js";
-import {likeSystem} from "./modules/likesystem.js";
+import {displayPhotographers} from "./jsmodules/indexpage.js";
+import {filterPhotographers} from "./jsmodules/indexpage.js";
+import {photographerPageGenerator} from "./jsmodules/photographerpage.js";
+import {displayGallery} from "./jsmodules/gallery.js";
+import {sortGallery} from "./jsmodules/sortgallery.js";
+import {likeSystem} from "./jsmodules/likesystem.js";
 
 //main
-fetch("./FishEyeData.json")
+fetch("./json/FishEyeData.json")
 
   .then((response) => {
     if (!response.ok) {
@@ -47,3 +47,17 @@ fetch("./FishEyeData.json")
   .catch(function (error) {
     console.log(error);
   });
+
+
+// gestion of the button return to top when screen is scrolled
+window.onscroll = function () {
+  const returnToTopBtn = document.getElementById("index-page-staticBox");
+
+  returnToTopBtn.style.display = "block";
+  
+  function fadeReturnToTopBtn(){
+    returnToTopBtn.style.display = "none";
+  };
+
+  setTimeout(function(){ fadeReturnToTopBtn (); }, 5000);
+}
