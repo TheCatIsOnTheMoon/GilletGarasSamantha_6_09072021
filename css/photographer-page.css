@@ -79,6 +79,10 @@ main {
   width: 10rem;
 }
 
+#contact-modal-form-launchBtn {
+  display: block;
+}
+
 /* Gallery */
 
 /* dropdown menu */

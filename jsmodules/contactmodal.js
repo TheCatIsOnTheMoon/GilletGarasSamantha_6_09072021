@@ -4,11 +4,12 @@
 const modalbg = document.querySelector(".contact-form-bground");
 const form = document.getElementById("form");
 const mainContent = document.getElementById("main-content");
+const contactBtn = document.getElementById("contact-modal-form-launchBtn");
 
 // Contact Modal Form Events --------------------------------------------
 
 // launch contact modal form
-document.getElementById("contact-modal-form-launchBtn").addEventListener("click", function () {
+contactBtn.addEventListener("click", function () {
   launchModalForm()
 });
 
@@ -76,6 +77,7 @@ document
 // open & close functions ------------------------------------------
 function launchModalForm() {
   modalbg.style.display = "block";
+  contactBtn.style.display = "none";
   form.setAttribute('aria-hidden', 'false');
   mainContent.setAttribute('aria-hidden', 'true');
   desactivateBackgroundFocus();
@@ -83,6 +85,7 @@ function launchModalForm() {
 
 function closeModalForm() {
   modalbg.style.display = "none";
+  contactBtn.style.display = "block";
   form.setAttribute('aria-hidden', 'true');
   mainContent.setAttribute('aria-hidden', 'false');
   reactivateBackgroundFocus();
