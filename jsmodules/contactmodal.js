@@ -39,12 +39,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // lauch the succes message and hide the form ----------------------------
 function LaunchSuccesMessage(event) {
+
+  let nameValue = "";
+  let emailValue = "";
+  let messageValue = "";
+
   if (
     isNameValid === true &&
     isEmailValid === true &&
     isMessageValid === true
   ) {
     event.preventDefault();
+
+    nameValue = document.getElementById("name").value;
+    emailValue = document.getElementById("email").value;
+    messageValue = document.getElementById("message").value;
+
+    console.log("name : " + nameValue + ", email : " + emailValue + ", messsage : " + messageValue);
+
     form.style.display = "none";
     return (document.getElementById("validation-message").style.display =
       "flex");
@@ -58,7 +70,7 @@ document
   .getElementById("close-btn-validation-message")
   .addEventListener("click", function () {
     closeModalForm()
-});
+  });
 
 
 // open & close functions ------------------------------------------
@@ -144,42 +156,39 @@ function desactivateBackgroundFocus() {
   function desactivateFocusElement(element) {
     element.setAttribute("tabindex", "-1");
   }
-  
+
   desactivateFocusElement(document.querySelector(".logo-fisheye"));
   desactivateFocusElement(document.getElementById("contact-modal-form-launchBtn"));
   desactivateFocusElement(document.getElementById("dropdown-menu-popularity"));
   desactivateFocusElement(document.getElementById("dropdown-menu-date"));
   desactivateFocusElement(document.getElementById("dropdown-menu-title"));
-  
+
   document.querySelectorAll(".lightbox-link").forEach(element => {
     desactivateFocusElement(element)
   });
-  
+
   document.querySelectorAll(".photo-caption-likes-heartIcon").forEach(element => {
     desactivateFocusElement(element)
   });
 }
 
 function reactivateBackgroundFocus() {
-  
+
   function activateFocusElement(element) {
     element.setAttribute("tabindex", "0");
   }
-  
+
   activateFocusElement(document.querySelector(".logo-fisheye"));
   activateFocusElement(document.getElementById("contact-modal-form-launchBtn"));
   activateFocusElement(document.getElementById("dropdown-menu-popularity"));
   activateFocusElement(document.getElementById("dropdown-menu-date"));
   activateFocusElement(document.getElementById("dropdown-menu-title"));
-  
+
   document.querySelectorAll(".lightbox-link").forEach(element => {
     activateFocusElement(element)
   });
-  
+
   document.querySelectorAll(".photo-caption-likes-heartIcon").forEach(element => {
     activateFocusElement(element)
   });
 }
-
-
-
