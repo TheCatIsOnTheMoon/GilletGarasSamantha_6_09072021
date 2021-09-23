@@ -162,7 +162,7 @@ main {
 .gallery-cards {
   margin-top: 1rem;
   flex-wrap: wrap;
-  gap: 5px 50px;
+  gap: 0px 50px;
 }
 
 .gallery-card {
