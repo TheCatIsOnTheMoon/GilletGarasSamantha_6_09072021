@@ -47,6 +47,7 @@
     width: 100%;
     margin: 0rem;
     padding: 0;
+    margin-bottom: 1.5rem;
     background-color: var(--bacground-almostWhite);
 
     justify-content: space-between;
@@ -102,14 +103,6 @@
   }
 
   /* actual photo gallery */
-  .gallery-cards {
-    margin-top: 1rem;
-  }
-
-  .gallery-card {
-    width: calc(100% / 2 - 25px);
-    aspect-ratio: 0;
-  }
 
   .photographer-page-staticBox {
     display: none;
@@ -148,7 +141,6 @@
 
   .gallery-card {
     width: 100%;
-    margin-bottom: 1rem;
   }
 
   .gallery-photo img,
