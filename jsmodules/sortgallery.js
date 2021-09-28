@@ -13,7 +13,7 @@ export function sortGallery(galleryData) {
         //https://stackoverflow.com/questions/1969145/sorting-javascript-array-with-chrome
 
         sortedData = galleryData.sort(function( a , b ){
-            var result = a.likes == b.likes ? 0 : a.likes > b.likes ? -1 : 1
+            let result = a.likes == b.likes ? 0 : a.likes > b.likes ? -1 : 1
             if(result === 0)
             {
             }
@@ -29,7 +29,7 @@ export function sortGallery(galleryData) {
         //idem than prec
 
         sortedData = galleryData.sort(function( a , b ){
-            var result = a.date == b.date ? 0 : a.date < b.date ? -1 : 1
+            let result = a.date == b.date ? 0 : a.date < b.date ? -1 : 1
             if(result === 0)
             {
             }
@@ -45,7 +45,7 @@ export function sortGallery(galleryData) {
         //idem than prec
 
         sortedData = galleryData.sort(function( a , b ){
-            var result = a.title == b.title ? 0 : a.title < b.title ? -1 : 1
+            let result = a.title == b.title ? 0 : a.title < b.title ? -1 : 1
             if(result === 0)
             {
             }

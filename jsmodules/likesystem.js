@@ -18,15 +18,12 @@ export function likeSystem(galleryData) {
     // Display total nbr of likes in the static box in the bottom right
     function displayTotalNbrOfLikes() {
 
-        // Get the total nbr of likes for the photographer
         for (let i = 0; i < galleryData.length; i++) {
             totalNbrOfLikes += Number(galleryData[i].likes);
         };
-
         return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
     }
 
-    // adding and remove likes
     function likesRemoveAndAdd(event) {
 
         if (event.target.className === "photo-caption-likes-heartIcon liked") {
@@ -34,7 +31,6 @@ export function likeSystem(galleryData) {
             event.target.classList.remove("liked");
             event.target.previousElementSibling.innerHTML--;
             totalNbrOfLikes--;
-
             return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
         }
 
@@ -43,7 +39,6 @@ export function likeSystem(galleryData) {
             event.target.classList.add("liked");
             event.target.previousElementSibling.innerHTML++;
             totalNbrOfLikes++;
-
             return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
 
         }

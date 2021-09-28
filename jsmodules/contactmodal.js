@@ -1,12 +1,10 @@
 "use strict";
 
-// DOM Elements --------------------------------------------------------
+// DOM Elements
 const modalbg = document.querySelector(".contact-form-bground");
 const form = document.getElementById("form");
 const mainContent = document.getElementById("main-content");
 const contactBtn = document.getElementById("contact-modal-form-launchBtn");
-
-// Contact Modal Form Events --------------------------------------------
 
 // launch contact modal form
 contactBtn.addEventListener("click", function () {
@@ -18,18 +16,17 @@ document.getElementById("closeBtn").addEventListener("click", function () {
   closeModalForm()
 });
 
-// ACCESSIBILITY : close contact modal form with escape key ---------------
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeModalForm()
   }
 });
 
+// verify input data when the submit btn is clicked (and when DOM is finished loading)
 let isNameValid = false;
 let isEmailValid = false;
 let isMessageValid = false;
 
-// verify input data when the submit btn is clicked (and when DOM is finished loading)
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-submit").addEventListener("click", () => {
     isNameValid = nameInputValidation();
@@ -38,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// lauch the succes message and hide the form ----------------------------
+// lauch the succes message and hide the form
 function LaunchSuccesMessage(event) {
 
   let nameValue = "";
@@ -66,7 +63,7 @@ function LaunchSuccesMessage(event) {
 
 form.addEventListener("submit", LaunchSuccesMessage, true);
 
-// close modal with the succes message -----------------------------------
+// close modal with the succes message
 document
   .getElementById("close-btn-validation-message")
   .addEventListener("click", function () {
@@ -74,7 +71,7 @@ document
   });
 
 
-// open & close functions ------------------------------------------
+// open & close functions
 function launchModalForm() {
   modalbg.style.display = "block";
   contactBtn.style.display = "none";
@@ -91,7 +88,7 @@ function closeModalForm() {
   reactivateBackgroundFocus();
 }
 
-// validation functions -------------------------------------------------------
+// validation functions
 
 // name
 function nameInputValidation() {
@@ -140,7 +137,7 @@ function messageInputValidation() {
   return true;
 }
 
-// error border functions -------------------------------------------------------
+// error border functions
 
 function ErrorInputBorder(inputID) {
   inputID.style.borderColor = "#901c1c";
@@ -152,7 +149,7 @@ function ValidInputBorder(inputID) {
 
 
 
-// modals focus fontions ---------------------------------------------
+// modals focus fontions
 
 function desactivateBackgroundFocus() {
 

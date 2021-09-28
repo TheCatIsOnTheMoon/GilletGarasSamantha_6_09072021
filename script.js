@@ -21,13 +21,11 @@ fetch("./json/FishEyeData.json")
     const photographersData = data.photographers;
     const mediaData = data.media;
 
-    // display the specifics photographers pages
-    // get the photographer id in the url and filter data with it
+    // display the specifics photographers pages : get the photographer id in the url and filter data with it
     if (document.URL.includes('photographer-page')) {
 
       let urlParams = new URLSearchParams(document.location.search.substring(1));
       let urlName = urlParams.get("id");
-
       let filteredDataPhotographers = photographersData.filter(photographer => photographer.id == urlName);
       let filteredDataMedia = mediaData.filter(media => media.photographerId == urlName);
 
@@ -48,7 +46,6 @@ fetch("./json/FishEyeData.json")
       function fadeReturnToTopBtn(){
         returnToTopBtn.style.display = "none";
       };
-
       setTimeout(function(){ fadeReturnToTopBtn (); }, 5000);
     }
 
@@ -60,5 +57,3 @@ fetch("./json/FishEyeData.json")
   .catch(function (error) {
     console.log(error);
   });
-
-

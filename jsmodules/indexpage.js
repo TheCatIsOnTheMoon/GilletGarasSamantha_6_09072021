@@ -1,9 +1,6 @@
-// display the photographers list
 export function displayPhotographers(photographersData) {
 
   const photographers = photographersData;
-
-  // console.log(photographers) //output : OK
 
   let indexPhotographersDOM = "";
 
@@ -43,7 +40,6 @@ export function displayPhotographers(photographersData) {
 
 
 // filter the photographers by tag when clicked and display accordingly
-
 export function filterPhotographers(photographersData) {
 
   let selectedTag = "";
@@ -54,15 +50,12 @@ export function filterPhotographers(photographersData) {
   document.addEventListener("click", (event) => {
 
     if (event.target.className === "tag") {
-      // specificPhotographer(event.target?.dataset?.name);
-
       selectedTag = event.target?.dataset?.name;
       specificPhotographer(selectedTag)
       tagStylisation(selectedTag)
     }
 
     return false;;
-
   });
 
   function tagStylisation(selectedTag) {
@@ -71,13 +64,9 @@ export function filterPhotographers(photographersData) {
       let tag = element.dataset.name;
 
       if (tag == selectedTag) {
-
         element.classList.add("selected-tag")
-
       } else {
-
         element.classList.remove("selected-tag")
-
       }
     });
   }
@@ -91,5 +80,4 @@ export function filterPhotographers(photographersData) {
     // relaunch the display function but with only the filtered ones
     return displayPhotographers(filterResult);
   }
-
 }

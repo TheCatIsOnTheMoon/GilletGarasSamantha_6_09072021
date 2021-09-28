@@ -1,13 +1,10 @@
-"use strict"; // only when not in a module
+"use strict";
 
-// DOM Elements --------------------------------------------------------
+// DOM Elements
 
 const lightbox = document.getElementById("lightboxModal");
 const gallery = document.querySelector("#article-gallery-cards");
 const mainContent = document.getElementById("main-content");
-
-
-// Lightbox Events --------------------------------------------------------------
 
 // Launch lightbox
 gallery.addEventListener("click", (event) => {
@@ -36,34 +33,24 @@ document.getElementById("lightbox-closeBtn").addEventListener("click", function 
     closeModalLightbox()
 });
 
-//  ACCESSIBILITY --------------------- 
-
-//REF: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
-
-// close lightbox and navigation
+// keyboard navigation
 document.addEventListener('keydown', (event) => {
 
     if (event.key === 'Escape') {
-
         return closeModalLightbox()
     }
 
     if (event.key === 'ArrowRight') {
-
         return displayNextMedia()
     }
 
     if (event.key === 'ArrowLeft') {
-
         return displayPreviousMedia()
     }
 
     if (event.key === 'Enter') {
-
         if (event.target.className === "lightbox-link") {
-
             let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
-
             desactivateBackgroundFocus();
             return displayLightbox(mediaPosition)
         }
@@ -72,7 +59,7 @@ document.addEventListener('keydown', (event) => {
 
 
 
-// Lightbox functions --------------------------------------------------------------
+// Lightbox functions
 
 function closeModalLightbox() {
     lightbox.style.display = "none";
@@ -131,7 +118,6 @@ function displayLightbox(index) {
                 <img src="${src}" alt="${alt}">
                 <div class="lightbox-title">${alt}</div>
             </div>
-            
         `
     }
 
@@ -155,7 +141,7 @@ function displayLightbox(index) {
     return lightbox.style.display = "block";
 }
 
-// modals focus fontions ---------------------------------------------
+// modals focus functions
 
 function desactivateBackgroundFocus() {
 
