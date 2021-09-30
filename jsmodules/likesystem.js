@@ -9,7 +9,7 @@ export function likeSystem(galleryData) {
     document.addEventListener('keydown', (event) => {
 
         if (event.key === 'Enter') {
-            if (event.target.className == "photo-caption-likes-heartIcon" || event.target.className == "photo-caption-likes-heartIcon liked") {
+            if (event.target.className === "photo-caption-likes-heartIcon" || event.target.className === "photo-caption-likes-heartIcon liked") {
                 return likesRemoveAndAdd(event)
             }
         }
@@ -31,6 +31,7 @@ export function likeSystem(galleryData) {
             event.target.classList.remove("liked");
             event.target.previousElementSibling.innerHTML--;
             totalNbrOfLikes--;
+
             return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
         }
 
@@ -39,12 +40,10 @@ export function likeSystem(galleryData) {
             event.target.classList.add("liked");
             event.target.previousElementSibling.innerHTML++;
             totalNbrOfLikes++;
+
             return document.getElementById("totalNumberOfLikes").innerHTML = `${totalNbrOfLikes}`;
-
         }
-
         return false
     }
-    
     displayTotalNbrOfLikes()
 }

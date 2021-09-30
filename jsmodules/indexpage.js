@@ -1,14 +1,12 @@
 export function displayPhotographers(photographersData) {
 
   const photographers = photographersData;
-
   let indexPhotographersDOM = "";
 
   photographers.forEach((photographer) => {
     indexPhotographersDOM += `
          
               <div class="photographer-card">
-
               <a href="photographer-page.html?id=${photographer.id}" tabindex="0">
                 <figure class="photographer-card-picture">
                   <img src= img/Photographers_ID_Photos/${photographer.portrait} alt= ${photographer.portrait} />
@@ -22,16 +20,11 @@ export function displayPhotographers(photographersData) {
                 <p class="photographer-card-tagLine">${photographer.tagline}</p>
                 <p class="photographer-card-price">${photographer.price}€ /jour</p>
                 <ul class="photographer-card-tags" role='list'>
-
                 ${photographer.tags.map((tag) => {return "<li><a href='#' class='tag' tabindex='0' data-name='" + tag + "'>" + "#" + tag + "</a></li>";}).join(' ')}
-
-
                 </ul>
               </div>
             </div>
-         
     `;
-
   });
   //  after .map(), .join(' ') is here to delete the coma between each li element
 
@@ -43,9 +36,6 @@ export function displayPhotographers(photographersData) {
 export function filterPhotographers(photographersData) {
 
   let selectedTag = "";
-
-  const navigation = document.querySelector("#nav-photographer-categories");
-  const photographersCards = document.querySelector("#section-photographers-cards");
 
   document.addEventListener("click", (event) => {
 
@@ -61,9 +51,10 @@ export function filterPhotographers(photographersData) {
   function tagStylisation(selectedTag) {
 
     document.querySelectorAll(".tag").forEach(element => {
+
       let tag = element.dataset.name;
 
-      if (tag == selectedTag) {
+      if (tag === selectedTag) {
         element.classList.add("selected-tag")
       } else {
         element.classList.remove("selected-tag")

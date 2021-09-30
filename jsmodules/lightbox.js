@@ -1,14 +1,12 @@
 "use strict";
 
 // DOM Elements
-
 const lightbox = document.getElementById("lightboxModal");
 const gallery = document.querySelector("#article-gallery-cards");
 const mainContent = document.getElementById("main-content");
 
 // Launch lightbox
 gallery.addEventListener("click", (event) => {
-
     if (event.target.className === "lightbox-link") {
 
         let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
@@ -18,12 +16,10 @@ gallery.addEventListener("click", (event) => {
     }
 });
 
-//lightbox next media button
+//lightbox next and previous media button
 document.getElementById("lightbox-nextBtn").addEventListener("click", (event) => {
     displayNextMedia()
 });
-
-//lightbox previous media button
 document.getElementById("lightbox-prevBtn").addEventListener("click", (event) => {
     displayPreviousMedia()
 });
@@ -35,19 +31,15 @@ document.getElementById("lightbox-closeBtn").addEventListener("click", function 
 
 // keyboard navigation
 document.addEventListener('keydown', (event) => {
-
     if (event.key === 'Escape') {
         return closeModalLightbox()
     }
-
     if (event.key === 'ArrowRight') {
         return displayNextMedia()
     }
-
     if (event.key === 'ArrowLeft') {
         return displayPreviousMedia()
     }
-
     if (event.key === 'Enter') {
         if (event.target.className === "lightbox-link") {
             let mediaPosition = getPosition(event.target.id, document.querySelectorAll(".lightbox-link"));
@@ -57,10 +49,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-
-
 // Lightbox functions
-
 function closeModalLightbox() {
     lightbox.style.display = "none";
     lightbox.setAttribute('aria-hidden', 'true');
@@ -79,6 +68,7 @@ function getPosition(targetId, targetlist) {
 }
 
 function displayNextMedia() {
+
     let targetlist = document.querySelectorAll(".lightbox-link");
     let mediaPosition = getPosition(document.querySelector(".lightbox-media").id, targetlist);
 
@@ -89,6 +79,7 @@ function displayNextMedia() {
 }
 
 function displayPreviousMedia() {
+
     let targetlist = document.querySelectorAll(".lightbox-link");
     let mediaPosition = getPosition(document.querySelector(".lightbox-media").id, targetlist);
 
@@ -101,14 +92,13 @@ function displayPreviousMedia() {
 function displayLightbox(index) {
 
     let targetlist = document.querySelectorAll(".lightbox-link");
-
-    // console.log(`${tagName}, ${src}, ${alt}`)
-    // output exemple : IMG, /pictures/930/Sport_Next_Hold.jpg, Climber
-
     let tagName = targetlist[index].tagName;
     let src = targetlist[index].getAttribute('src');
     let alt = targetlist[index].getAttribute('alt');
     let id = targetlist[index].getAttribute('id');
+
+    // console.log(`${tagName}, ${src}, ${alt}`)
+    // output exemple : IMG, /pictures/930/Sport_Next_Hold.jpg, Climber
 
     let lightboxDOM = "";
 
@@ -142,7 +132,6 @@ function displayLightbox(index) {
 }
 
 // modals focus functions
-
 function desactivateBackgroundFocus() {
 
     function desactivateFocusElement(element) {
