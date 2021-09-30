@@ -170,6 +170,7 @@ main {
 }
 
 .gallery-card {
+  position: relative;
   width: calc((100% / 3) - (100px / 3));
   height: 400px;
 }
@@ -204,6 +205,20 @@ main {
   font-size: 0.8rem;
   line-height: 1rem;
   font-weight: lighter;
+}
+
+.video-label {
+  position: absolute;
+  background-color: var(--background-burgandy);
+  color: white;
+
+  padding: .2rem .4rem;
+  top: .5rem;
+  right: .5rem;
+  border-radius: 0.2rem;
+
+  font-size: 0.7rem;
+  font-weight: bolder;
 }
 
 /* default heart */

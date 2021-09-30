@@ -35,6 +35,7 @@ export function displayGallery(galleryData) {
                                 <span class="photo-caption-likes-heartIcon" tabindex="0"> ♥ </span>
                             </div>
                         </figcaption>
+                        <span class="video-label"> VIDEO </span>
                     </figure>
             `;
         }
