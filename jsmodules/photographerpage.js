@@ -20,7 +20,7 @@ export function photographerPageGenerator(photographe) {
 
     photographeBannerProfilePictureDOM += `
         <aside class="banner-profilePicture">
-            <img src= img/Photographers_ID_Photos/${photographe.portrait} alt= ${photographe.portrait} />
+            <img src="img/Photographers_ID_Photos/${photographe.portrait}" alt= "portrait de ${photographe.name}" />
         </aside>
     `;
 
